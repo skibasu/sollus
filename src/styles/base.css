@@ -1,16 +1,38 @@
 @layer base {
-  body { @apply bg-background font-sans font-medium text-text-default antialiased; }
-  button, input { font: inherit; }
-  button:not(:disabled), a { -webkit-tap-highlight-color: transparent; }
-  :focus-visible { @apply outline-2 outline-offset-4 outline-focus; }
-  ::selection { @apply bg-action text-black; }
+    body {
+        @apply bg-background font-sans font-medium text-text-default antialiased;
+    }
+    button,
+    input {
+        font: inherit;
+    }
+    button:not(:disabled),
+    a {
+        -webkit-tap-highlight-color: transparent;
+    }
+    :focus-visible {
+        @apply outline-2 outline-offset-4 outline-focus;
+    }
+    ::selection {
+        @apply bg-action text-black;
+    }
 }
 @layer components {
-  .page-container { @apply mx-auto w-[calc(100%-2rem)] min-w-0; }
-  .svg-artwork { @apply inline-flex shrink-0 items-center justify-center; }
-  .svg-artwork > svg { @apply block max-h-full max-w-full; }
-  .skip-link { @apply fixed top-4 left-4 z-[100] -translate-y-[200%] rounded-control bg-action px-6 py-3 text-black focus:translate-y-0; }
-  @variant 3xl {
-    .page-container { width: min(calc(50vw + 40rem), 120rem); }
-  }
+    .page-container {
+        @apply mx-auto w-[calc(100%-2rem)] min-w-0;
+    }
+    .svg-artwork {
+        @apply inline-flex shrink-0 items-center justify-center;
+    }
+    .svg-artwork > svg {
+        @apply block max-h-full max-w-full;
+    }
+    .skip-link {
+        @apply fixed top-4 left-4 z-100 -translate-y-[200%] rounded-control bg-action px-6 py-3 text-black focus:translate-y-0;
+    }
+    @variant 3xl {
+        .page-container {
+            width: min(calc(50vw + 40rem), 120rem);
+        }
+    }
 }
