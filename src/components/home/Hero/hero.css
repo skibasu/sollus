@@ -156,8 +156,9 @@
       top: 26.9375rem;
     }
     .trust-badge {
-      right: max(2rem, calc((100% - 100rem) / 2 - 2.5rem));
-      bottom: 5.1875rem;
+      right: calc((100% - 100rem) / 2);
+      transform: translateX(35%);
+      bottom: 2rem;
     }
   }
 }
