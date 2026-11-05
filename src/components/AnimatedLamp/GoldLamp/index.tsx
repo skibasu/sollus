@@ -1,5 +1,6 @@
 "use client";
 
+import { content } from "@/lib/content";
 import Image from "next/image";
 import { useId, useState } from "react";
 import { useLampMotion } from "@/hooks/useLampMotion";
@@ -25,7 +26,7 @@ export default function GoldLamp({ className = "", defaultOn = false, width, hei
     <button
       ref={buttonRef}
       type="button"
-      aria-label={on ? "Wyłącz: Złota lampa" : "Włącz: Złota lampa"}
+      aria-label={on ? content.lampControls.gold.off : content.lampControls.gold.on}
       aria-pressed={on}
       onClick={() => setOn((value) => !value)}
       style={{ width: renderedWidth }}
@@ -34,7 +35,7 @@ export default function GoldLamp({ className = "", defaultOn = false, width, hei
       <span ref={visualRef} style={{ aspectRatio: `${renderedWidth} / ${renderedHeight}` }} className="pointer-events-none relative block origin-[50%_18%] motion-safe:will-change-transform">
         <Image
           src="/images/lamps/lampa1.png"
-          alt="Złota lampa"
+          alt={content.hero.lamps.gold}
           fill
           sizes={`(max-width: ${renderedWidth}px) 100vw, ${renderedWidth}px`}
           draggable={false}

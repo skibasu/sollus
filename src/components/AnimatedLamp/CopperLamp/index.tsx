@@ -1,5 +1,6 @@
 "use client"
 
+import { content } from "@/lib/content";
 import Image from "next/image"
 import { useId, useState } from "react"
 import { useLampMotion } from "@/hooks/useLampMotion"
@@ -22,9 +23,9 @@ export default function CopperLamp({ className = "", defaultOn = false, width, h
     const glowId = `${id}-glow`
 
     return (
-        <button ref={buttonRef} type="button" aria-label={on ? "Wyłącz: Miedziana lampa" : "Włącz: Miedziana lampa"} aria-pressed={on} onClick={() => setOn((value) => !value)} style={{ width: renderedWidth }} className={`relative isolate block max-w-full cursor-pointer border-0 bg-transparent p-0 focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-amber-300 ${className}`}>
+        <button ref={buttonRef} type="button" aria-label={on ? content.lampControls.copper.off : content.lampControls.copper.on} aria-pressed={on} onClick={() => setOn((value) => !value)} style={{ width: renderedWidth }} className={`relative isolate block max-w-full cursor-pointer border-0 bg-transparent p-0 focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-amber-300 ${className}`}>
             <span ref={visualRef} style={{ aspectRatio: `${renderedWidth} / ${renderedHeight}` }} className="pointer-events-none relative block origin-[50%_18%] motion-safe:will-change-transform">
-                <Image src="/images/lamps/lampa3.png" alt="Miedziana lampa" fill sizes={`(max-width: ${renderedWidth}px) 100vw, ${renderedWidth}px`} draggable={false} loading="eager" className={`z-10 transition-[filter] duration-400 motion-reduce:transition-none ${on ? "brightness-105" : "brightness-[.78]"}`} />
+                <Image src="/images/lamps/lampa3.png" alt={content.hero.lamps.copper} fill sizes={`(max-width: ${renderedWidth}px) 100vw, ${renderedWidth}px`} draggable={false} loading="eager" className={`z-10 transition-[filter] duration-400 motion-reduce:transition-none ${on ? "brightness-105" : "brightness-[.78]"}`} />
                 <svg viewBox="0 0 423 393" preserveAspectRatio="none" aria-hidden="true" className="absolute inset-0 z-20 h-full w-full overflow-visible">
                     <defs>
                         <radialGradient id={gradientId}>

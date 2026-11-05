@@ -1,0 +1,8 @@
+@layer components {
+  .button { @apply inline-flex w-fit max-w-full shrink-0 items-center justify-center rounded-pill px-18 py-3 text-lead font-bold transition-colors disabled:pointer-events-none disabled:opacity-40; }
+  .button--brand { @apply bg-action text-black hover:bg-action-hover active:bg-action-hover; }
+  .button--dark { @apply bg-surface-dark text-white hover:bg-black-hover active:bg-black; }
+  .group:hover .button--dark, .group:focus-visible .button--dark { @apply bg-black-hover; }
+  @variant md { .button { @apply px-6 py-4; } }
+  @media (prefers-reduced-motion: reduce) { .button { @apply transition-none; } }
+}

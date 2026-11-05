@@ -70,3 +70,11 @@ Follow `SPEC.md` for detailed requirements and open decisions. Do not expand the
 - Run appropriate available project checks after changes, particularly lint and build checks for implementation changes. Report failures and checks that could not be completed.
 - Add interaction tests where they verify meaningful behavior. Do not create tests that merely reproduce static layout structure.
 - Summarize the completed scope, verification results, and any deviations from the design.
+
+## Scalable architecture and stylesheet organization
+
+- Page components compose sections; sections compose small components with clear responsibilities. Separate shared UI and layout components from Home-specific components.
+- Avoid files containing multiple complete sections, deeply nested JSX, duplicated markup, or unrelated styling rules. Extract components when responsibility, reuse, or readability benefits.
+- Keep theme tokens and global base rules in separate shared stylesheets. Keep section and component styles alongside their components and import styles in a predictable order from the main stylesheet.
+- Prefer Tailwind utilities. Compose necessary custom classes with `@apply` where supported, grouping remaining rules by their component or section.
+- Keep responsive behavior in CSS. GridColumn may accept a fractional size or a breakpoint-to-fraction map, selecting statically declared Tailwind classes.
