@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { ButtonLink } from "@/components/ui/Button";
-import { StaticLamps } from "./StaticLamps";
+import { HeroLamps } from "./HeroLamps";
 import { TrustBadge } from "./TrustBadge";
 import { content } from "@/lib/content";
 export function Hero() {
@@ -17,7 +17,7 @@ export function Hero() {
         sizes="100vw"
         className="hero-background"
       />
-      <StaticLamps />
+      <HeroLamps />
       <div className="page-container hero-content">
         <div className="hero-copy">
           <p className="text-lead">{content.hero.eyebrow}</p>
