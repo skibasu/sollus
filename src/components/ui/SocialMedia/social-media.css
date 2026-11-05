@@ -3,7 +3,7 @@
     @apply flex items-center gap-3;
   }
   .social-media-link {
-    @apply flex size-[1.125rem] items-center justify-center rounded-pill hover:bg-muted;
+    @apply flex size-[1.125rem] cursor-pointer items-center justify-center rounded-pill;
   }
   .social-media-icon {
     @apply size-[1.125rem];

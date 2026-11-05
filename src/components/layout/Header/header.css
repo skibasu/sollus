@@ -21,19 +21,9 @@
     }
   }
 
-  .site-header {
-    transition:
-      color 250ms ease-in-out,
-      background-color 250ms ease-in-out;
-  }
-
   .site-header a,
   .site-header button {
-    transition: background-color 250ms ease-in-out;
-  }
-
-  .header-search-field {
-    transition: border-color 250ms ease-in-out;
+    @apply cursor-pointer;
   }
 
   .site-header .svg-artwork [fill]:not([fill="none"]) {
@@ -42,14 +32,6 @@
 
   .site-header .svg-artwork [stroke]:not([stroke="none"]) {
     stroke: currentColor;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .site-header,
-    .site-header *,
-    .site-header input::placeholder {
-      transition-duration: 0ms;
-    }
   }
 
   .header-inner {
@@ -69,7 +51,7 @@
 
   .header-icon,
   .header-search-trigger {
-    @apply flex size-12 shrink-0 items-center justify-center rounded-pill bg-transparent hover:bg-white/10;
+    @apply flex size-12 shrink-0 items-center justify-center rounded-pill bg-transparent;
   }
 
   .header-basket {
@@ -77,11 +59,11 @@
   }
 
   .hamburger {
-    @apply flex size-13 shrink-0 items-center justify-center rounded-[.375rem] border border-current bg-transparent hover:bg-white;
+    @apply flex size-13 shrink-0 items-center justify-center rounded-[.375rem] border border-current bg-transparent;
   }
 
   .menu-link {
-    @apply inline-flex shrink-0 items-center justify-center gap-1 rounded-control px-3 py-2 text-body font-bold whitespace-nowrap hover:bg-white/10;
+    @apply inline-flex shrink-0 items-center justify-center gap-1 rounded-control px-3 py-2 text-body font-bold whitespace-nowrap;
   }
 
   .header-search {
@@ -90,6 +72,10 @@
 
   .header-search-field {
     @apply hidden h-13 w-full min-w-0 items-center gap-4 rounded-pill border border-current px-6;
+  }
+
+  .header-search-field .svg-artwork {
+    @apply cursor-pointer;
   }
 
   .header-search-field input {
@@ -115,7 +101,7 @@
     }
 
     .header-configurator {
-      @apply inline-flex size-11 shrink-0 items-center justify-center gap-2 rounded-pill text-small font-medium whitespace-nowrap hover:bg-white/10;
+      @apply inline-flex size-11 shrink-0 items-center justify-center gap-2 rounded-pill text-small font-medium whitespace-nowrap;
     }
   }
 

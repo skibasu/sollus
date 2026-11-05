@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
-import { buttonClasses } from "../Button";
+import { ButtonLabel, buttonClasses } from "../Button";
 import { classes } from "@/lib/classes";
 export type TileCardProps = {
   image: string;
@@ -41,7 +41,9 @@ export function TileCard({
           <p className="tile-eyebrow">{title}</p>
           <h3 className="tile-heading">{subtitle}</h3>
         </div>
-        <span className={buttonClasses("dark")}>{buttonLabel}</span>
+        <span className={buttonClasses("dark")}>
+          <ButtonLabel label={buttonLabel} />
+        </span>
       </div>
     </a>
   );

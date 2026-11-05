@@ -1,4 +1,5 @@
 import { content } from "@/lib/content";
+import { FooterLink } from "./FooterLink";
 export function FooterNavigation() {
   return (
     <nav
@@ -14,12 +15,10 @@ export function FooterNavigation() {
           <ul>
             {column.links.map((label) => (
               <li key={label}>
-                <a
+                <FooterLink
                   href="#"
-                  className="footer-link"
-                >
-                  {label}
-                </a>
+                  label={label}
+                />
               </li>
             ))}
           </ul>

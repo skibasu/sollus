@@ -25,7 +25,18 @@
     @apply flex flex-col gap-[.875rem];
   }
   .footer-link {
-    @apply hover:text-action-hover;
+    @apply relative inline-block w-fit max-w-full cursor-pointer;
+  }
+  .footer-link-highlight {
+    @apply pointer-events-none absolute inset-0 text-action-hover opacity-0 transition-opacity duration-250 ease-in-out motion-reduce:transition-none;
+  }
+  .footer-link:focus-visible .footer-link-highlight {
+    @apply opacity-100;
+  }
+  @media (hover: hover) {
+    .footer-link:hover .footer-link-highlight {
+      @apply opacity-100;
+    }
   }
   .footer-services {
     @apply flex flex-col border-t border-border;
@@ -50,7 +61,7 @@
     @apply flex max-w-[11rem] flex-wrap gap-2;
   }
   .country-link {
-    @apply flex size-8 items-center justify-center rounded-pill hover:bg-muted;
+    @apply flex size-8 items-center justify-center rounded-pill;
   }
   .footer-legal {
     @apply grid gap-2 py-8 text-caption;
@@ -63,6 +74,9 @@
   }
   .provider-marks {
     @apply flex items-center gap-2;
+  }
+  .provider-marks a {
+    @apply cursor-pointer;
   }
   .commerce-mark {
     @apply relative block h-9 w-[4.125rem] overflow-hidden;

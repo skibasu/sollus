@@ -17,6 +17,20 @@ export function buttonClasses(
     className,
   );
 }
+export function ButtonLabel({ label }: { label: string }) {
+  return (
+    <span className="button-label">
+      {label}
+      <span
+        aria-hidden="true"
+        className="button-label-highlight"
+      >
+        {label}
+      </span>
+    </span>
+  );
+}
+
 export function Button({
   label,
   appearance,
@@ -30,7 +44,7 @@ export function Button({
       className={buttonClasses(appearance, className)}
       {...props}
     >
-      {label}
+      <ButtonLabel label={label} />
     </button>
   );
 }
@@ -50,7 +64,7 @@ export function ButtonLink({
       className={buttonClasses(appearance, className)}
       {...props}
     >
-      {label}
+      <ButtonLabel label={label} />
     </Link>
   );
 }

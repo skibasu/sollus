@@ -1,16 +1,46 @@
 @layer components {
   .button {
-    @apply inline-flex w-fit max-w-full shrink-0 items-center justify-center rounded-pill px-18 py-3 text-lead font-bold transition-[background-color,color,scale] duration-150 motion-safe:active:scale-[0.98] disabled:pointer-events-none disabled:opacity-40;
+    @apply relative isolate inline-flex w-fit max-w-full shrink-0 items-center justify-center rounded-pill px-18 py-3 text-lead font-bold transition-transform duration-250 ease-in-out motion-safe:active:scale-[0.98] disabled:pointer-events-none disabled:opacity-40;
+  }
+  .button::before {
+    @apply pointer-events-none absolute inset-0 -z-10 rounded-[inherit];
+    background: var(--button-hover-background);
+    content: "";
   }
   .button--brand {
-    @apply bg-action text-black hover:bg-action-bright active:bg-action;
+    --button-hover-color: var(--color-charcoal);
+    --button-hover-background: var(--color-action-bright);
+    @apply bg-action text-black;
   }
   .button--dark {
-    @apply bg-surface-dark text-white hover:bg-black-hover active:bg-black;
+    --button-hover-color: var(--color-muted);
+    --button-hover-background: var(--color-black-hover);
+    @apply bg-surface-dark text-white active:bg-black;
   }
-  .group:hover .button--dark,
+  .button-label {
+    @apply relative;
+  }
+  .button-label-highlight {
+    @apply pointer-events-none absolute inset-0;
+    color: var(--button-hover-color);
+  }
+  .button::before,
+  .button-label-highlight {
+    opacity: var(--button-hover-opacity, 0);
+    @apply transition-opacity duration-250 ease-in-out motion-reduce:transition-none;
+  }
+  .button:focus-visible,
   .group:focus-visible .button--dark {
-    @apply bg-black-hover;
+    --button-hover-opacity: 1;
+  }
+  @media (hover: hover) {
+    .button:hover,
+    .group:hover .button--dark {
+      --button-hover-opacity: 1;
+    }
+  }
+  .button:active {
+    --button-hover-opacity: 0;
   }
   @variant md {
     .button {

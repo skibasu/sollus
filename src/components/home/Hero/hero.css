@@ -176,14 +176,14 @@
   }
   .hero-slider .swiper-slide {
     overflow: hidden;
-    transition-timing-function: ease-in-out;
+    transition-timing-function: var(--ease-in-out);
   }
   .hero-slide-image {
     object-fit: cover;
     transform: scale(1);
   }
   .swiper-slide-active .hero-slide-image {
-    animation: hero-image-enter 800ms ease-out both;
+    animation: hero-image-enter 800ms var(--ease-out) both;
   }
   .hero-slider-controls {
     pointer-events: none;
