@@ -1,0 +1,9 @@
+@layer components {
+  .offers-section { @apply bg-white py-42; }
+  .offers-inner { @apply flex flex-col gap-42; }
+  .benefits { @apply grid grid-cols-1 gap-1; }
+  @variant md { .offers-section { @apply py-12; } .offers-inner { @apply gap-12; } .benefits { @apply grid-cols-3 gap-x-5 gap-y-8; } }
+  @variant lg { .offers-section { @apply py-58; } .offers-inner { @apply gap-58; } .benefits { @apply grid-cols-5 gap-8; } }
+  @variant xl { .offers-section { @apply py-16; } .offers-inner { @apply gap-16; } }
+  @variant 2xl { .offers-section { @apply py-86; } }
+}

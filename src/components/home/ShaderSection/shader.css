@@ -1,0 +1,8 @@
+@layer components {
+  .shader-section { @apply flex min-h-[19.0625rem] items-center justify-center bg-black px-4 py-8 text-center text-white; }
+  .shader-content { @apply flex flex-col items-center gap-8; }
+  .shader-content h2 { @apply max-w-[58rem] text-card-mobile font-bold; }
+  .shader-content > p { @apply max-w-[17.125rem] text-lead; }
+  @variant md { .shader-section { min-height: 43.4896vw; } .shader-content { @apply py-12; } .shader-content h2 { @apply text-card; max-width: 75vw; } }
+  @variant lg { .shader-content h2 { @apply text-hero; max-width: min(75vw, 58rem); } }
+}

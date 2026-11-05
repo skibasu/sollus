@@ -6,6 +6,7 @@ This specification records the user's requirements. Figma metadata has verified 
 
 - Design system: https://www.figma.com/design/ga8Qzh7duLy66171TpbJFt/sollux-my-work?node-id=16-2
 - Screens: https://www.figma.com/design/ga8Qzh7duLy66171TpbJFt/sollux-my-work?node-id=13-700
+- Approved clean THORO image: https://www.figma.com/design/ga8Qzh7duLy66171TpbJFt/sollux-my-work?node-id=412-9517
 - Follow `AGENTS.md` and the installed Next.js documentation.
 - Stack: Next.js, React 19, TypeScript, Tailwind CSS 4; Swiper for React in the later interaction stage.
 - Code, identifiers, comments, file names, and documentation must be in English. Website content must be in Polish.
@@ -119,7 +120,7 @@ Place components in `src/components`. Use clear responsibilities, typed props, r
 - Use Tailwind for styling and variants.
 - Use the large appearance from 768px upward and the small appearance below that threshold. Size changes are driven entirely by responsive Tailwind classes, without caller-supplied size parameters.
 - Match Figma hover, focus, and disabled states where defined.
-- Use semantic links for navigation and semantic buttons for actions. Confirm the shared styling API for link-shaped buttons before implementation.
+- Use semantic links for navigation and semantic buttons for actions. Use a separate ButtonLink component sharing Button styles for navigation. Both components require label and may select brand or dark appearance; neither exposes a size prop.
 
 ### MenuLink
 
@@ -225,6 +226,13 @@ The animated lamps are existing, ready-made components. Preserve and configure t
 
 ## Open decisions
 
-1. Define the responsive GridColumn layout API after inspecting the relevant layouts.
-2. The user will provide historical browser targets before the final compatibility stage.
+1. The user will provide historical browser targets before the final compatibility stage.
 
+
+## Scalable architecture and stylesheet organization
+
+- Page components compose sections; sections compose small components with clear responsibilities. Separate shared UI and layout components from Home-specific components.
+- Avoid files containing multiple complete sections, deeply nested JSX, duplicated markup, or unrelated styling rules. Extract components when responsibility, reuse, or readability benefits.
+- Keep theme tokens and global base rules in separate shared stylesheets. Keep section and component styles alongside their components and import styles in a predictable order from the main stylesheet.
+- Prefer Tailwind utilities. Compose necessary custom classes with `@apply` where supported, grouping remaining rules by their component or section.
+- Keep responsive behavior in CSS. GridColumn may accept a fractional size or a breakpoint-to-fraction map, selecting statically declared Tailwind classes.

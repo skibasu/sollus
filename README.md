@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sollus
 
-## Getting Started
+A responsive Polish lighting landing page built with Next.js App Router, React, TypeScript, and Tailwind CSS 4.
 
-First, run the development server :
+## Development
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- `npm run dev`: start the development server.
+- `npm run lint`: run ESLint.
+- `npx tsc --noEmit`: check TypeScript.
+- `npm run build`: produce the production build.
+- `npm start`: serve the production build.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Architecture
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The Home page composes shared layout and Home-specific sections. Shared UI primitives are independent of page content. All visitor-facing copy is maintained in `src/content/pl.json` with English keys and Polish values.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The global stylesheet imports the theme, base rules, and colocated component styles in a predictable order. Component sizes are controlled by responsive Tailwind classes. GridColumn accepts fractional allocations and breakpoint maps; it never detects viewport width in JavaScript.
 
-## Learn More
+The only breakpoints are xs (360px), md (768px), lg (1080px), xl (1280px), 2xl (1440px), and 3xl (1920px). Base styles support 320px. The main container grows from 1600px at 1920px to its 1920px maximum at 2560px.
 
-To learn more about Next.js, take a look at the following resources:
+## Stage boundaries
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Stage 1 uses static lamp images, a static first slide without slider controls, and a complete call-to-action section on black. Existing AnimatedLamp components, their hook, original PNGs, and GoldenAmbientWaves are preserved for later stages and are not imported by Home.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+No dependencies or animation libraries were added. Fonts, image assets, and inline SVG artwork are local. The clean THORO photograph uses the additional Figma node approved by the user.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+See AGENTS.md and SPEC.md for the authoritative requirements. Historical browser compatibility is a separate final stage.

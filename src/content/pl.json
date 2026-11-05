@@ -1,0 +1,274 @@
+{
+  "metadata": {
+    "title": "SOLLUX — Kolor i forma w nowym świetle",
+    "description": "Odkryj lampy SOLLUX. Wyjątkowe oświetlenie, polska jakość i inspiracje do Twojego wnętrza."
+  },
+  "accessibility": {
+    "home": "SOLLUX — strona główna",
+    "navigation": "Nawigacja główna",
+    "menu": "Menu",
+    "account": "Moje konto",
+    "basket": "Koszyk",
+    "search": "Szukaj produktów",
+    "skip": "Przejdź do treści",
+    "social": "SOLLUX w mediach społecznościowych",
+    "benefits": "Dlaczego SOLLUX",
+    "offers": "Odkryj SOLLUX",
+    "footer": "Informacje i pomoc"
+  },
+  "header": {
+    "placeholder": "Czego szukasz?",
+    "configurator": "Stwórz swoją lampę",
+    "links": [
+      {
+        "id": "lamps",
+        "href": "#",
+        "label": "Lampy"
+      },
+      {
+        "id": "colors",
+        "href": "#",
+        "label": "Kolory"
+      },
+      {
+        "id": "rooms",
+        "href": "#",
+        "label": "Pomieszczenia"
+      },
+      {
+        "id": "new",
+        "href": "#",
+        "label": "Nowości"
+      },
+      {
+        "id": "bestsellers",
+        "href": "#",
+        "label": "Bestsellery"
+      },
+      {
+        "id": "sale",
+        "href": "#",
+        "label": "Promocje"
+      }
+    ]
+  },
+  "hero": {
+    "eyebrow": "Bestsellery SOLLUX",
+    "title": [
+      "Kolor i forma",
+      "w nowym świetle"
+    ],
+    "button": "Sprawdź bestsellery",
+    "rating": "4.8",
+    "ratingLabel": "Uwielbiany przez klientów",
+    "lamps": {
+      "gold": "Złota lampa",
+      "wall": "Lampa ścienna",
+      "copper": "Miedziana lampa"
+    }
+  },
+  "benefits": [
+    {
+      "icon": "returns",
+      "title": "Zwroty nawet do 100 dni",
+      "subtitle": "szybkie i proste"
+    },
+    {
+      "icon": "warranty",
+      "title": "5 lat gwarancji",
+      "subtitle": "na wszystkie produkty"
+    },
+    {
+      "icon": "delivery",
+      "title": "Darmowa dostawa",
+      "subtitle": "już za 299 zł"
+    },
+    {
+      "icon": "poland",
+      "title": "Polskie produkty",
+      "subtitle": "sprawdzona jakość"
+    },
+    {
+      "icon": "trophy",
+      "title": "Oficjalny sklep producenta",
+      "subtitle": "gwarancja satysfakcji"
+    }
+  ],
+  "cards": [
+    {
+      "id": "thoro",
+      "title": "Marka THORO",
+      "subtitle": "Poznaj lampy premium",
+      "buttonLabel": "Odwiedź sklep THORO",
+      "alt": "Kobieta w fotelu pod niebieską lampą THORO"
+    },
+    {
+      "id": "configurator",
+      "title": "Konfigurator 3D",
+      "subtitle": "Wybierz projekt i dostosuj go do swojego wnętrza",
+      "buttonLabel": "Stwórz swój projekt",
+      "alt": "Konfigurator lamp na ekranie laptopa"
+    },
+    {
+      "id": "catalog",
+      "title": "Katalog",
+      "subtitle": "Odkryj najnowszy katalog",
+      "buttonLabel": "Sprawdź katalog",
+      "alt": "Katalog oświetlenia SOLLUX na tablecie"
+    },
+    {
+      "id": "smart",
+      "title": "SOLLUX SMART",
+      "subtitle": "Przymierz lampę w aplikacji",
+      "buttonLabel": "Pobierz aplikacje na telefon",
+      "alt": "Podgląd lampy we wnętrzu w aplikacji SOLLUX SMART"
+    }
+  ],
+  "shader": {
+    "title": "Twoje wnętrze zasługuje na wyjątkowe światło",
+    "button": "Kup Teraz",
+    "subtitle": "Od 119 zł na oficjalnej stronie producenta SOLLUX"
+  },
+  "footer": {
+    "columns": [
+      {
+        "title": "Moje zamówienia",
+        "links": [
+          "Status zamówienia",
+          "Śledzenie przesyłki",
+          "Chcę zareklamować produkt",
+          "Informacje o wymianie",
+          "Kontakt"
+        ]
+      },
+      {
+        "title": "Moje konto",
+        "links": [
+          "Zarejestruj się",
+          "Koszyk",
+          "Listy zakupowe",
+          "Lista zakupionych produktów",
+          "Historia transakcji",
+          "Moje rabaty"
+        ]
+      },
+      {
+        "title": "Regulaminy",
+        "links": [
+          "Sposoby wysyłki",
+          "Sposoby płatności",
+          "Regulamin sklepu",
+          "Polityka prywatności",
+          "Polityka bezpieczeństwa",
+          "Zmień ustawienia ciasteczek"
+        ]
+      },
+      {
+        "title": "Informacje",
+        "links": [
+          "O nas",
+          "FAQ",
+          "Kurs światła",
+          "Inspiracje",
+          "Marka premium",
+          "Gwarancja",
+          "Konfigurator 3D"
+        ]
+      },
+      {
+        "title": "Wpsółpraca",
+        "links": [
+          "Dla Architekta",
+          "Modele 3D",
+          "Dystrybucja"
+        ]
+      }
+    ],
+    "payments": "Płatności i dostawy",
+    "awards": "Nagrody",
+    "stores": "Nasze sklepy",
+    "paymentAlt": [
+      "Visa",
+      "Mastercard",
+      "PayU",
+      "PayPal",
+      "InPost",
+      "DPD",
+      "Paczka w RUCHu",
+      "DHL",
+      "GLS",
+      "Poczta Polska"
+    ],
+    "awardAlt": [
+      "Diamenty Forbesa",
+      "Orły Oświetlenia",
+      "Gazele Biznesu 2021",
+      "Solidna Firma 2021",
+      "Polska Gwarancja Jakości",
+      "Firma Godna Zaufania"
+    ],
+    "countries": [
+      "Polska",
+      "Niemcy",
+      "Hiszpania",
+      "Rumunia",
+      "Francja",
+      "Wielka Brytania",
+      "Holandia",
+      "Szwecja"
+    ],
+    "vat": "W sklepie prezentujemy ceny brutto (z VAT). Stawki VAT dla konsumentów z kraju: Polska.",
+    "contact": [
+      "NIP: 6070082443",
+      "+48 668 806 323",
+      "(Pn - Pt 7:00 - 15:00)",
+      "sklep@sollux.pl",
+      "Sollux Lighting Sp. z o.o.",
+      "Władysława Łokietka 35, 64-840 Budzyń (POLSKA)"
+    ],
+    "providerReviews": "Oceny sklepu",
+    "providerCommerce": "IdoSell — certyfikat sklepu"
+  },
+  "social": [
+    {
+      "icon": "facebook",
+      "label": "Facebook",
+      "href": "#"
+    },
+    {
+      "icon": "instagram",
+      "label": "Instagram",
+      "href": "#"
+    },
+    {
+      "icon": "tiktok",
+      "label": "TikTok",
+      "href": "#"
+    },
+    {
+      "icon": "youtube",
+      "label": "YouTube",
+      "href": "#"
+    }
+  ],
+  "notFound": {
+    "code": "404",
+    "title": "Tu nie dotarło światło",
+    "description": "Nie możemy znaleźć tej strony. Wróć na stronę główną i odkryj oświetlenie do swojego wnętrza.",
+    "button": "Wróć na stronę główną"
+  },
+  "lampControls": {
+    "gold": {
+      "on": "Włącz: Złota lampa",
+      "off": "Wyłącz: Złota lampa"
+    },
+    "wall": {
+      "on": "Włącz: Lampa ścienna",
+      "off": "Wyłącz: Lampa ścienna"
+    },
+    "copper": {
+      "on": "Włącz: Miedziana lampa",
+      "off": "Wyłącz: Miedziana lampa"
+    }
+  }
+}

@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react"
 
 type GoldenAmbientWavesProps = {
-    /** 1 = aktualna prędkość animacji. */
+    /** 1 = the original animation speed. */
     speed?: number
     intensity?: number
     className?: string

@@ -1,3 +1,18 @@
+import { Header } from "@/components/layout/Header";
+import { Hero } from "@/components/home/Hero";
+import { Offers } from "@/components/home/Offers";
+import { ShaderSection } from "@/components/home/ShaderSection";
+import { Footer } from "@/components/layout/Footer";
+import { content } from "@/lib/content";
 export default function Home() {
-    return <main className="flex min-h-screen flex-col items-center gap-20 px-8 py-16"></main>
+  return <>
+    <a href="#main-content" className="skip-link">{content.accessibility.skip}</a>
+    <Header links={content.header.links} />
+    <main id="main-content">
+      <Hero />
+      <Offers />
+      <ShaderSection />
+    </main>
+    <Footer />
+  </>;
 }

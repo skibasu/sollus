@@ -1,0 +1,46 @@
+@layer components {
+  .site-footer { @apply bg-white text-small; }
+  .footer-top { @apply flex flex-col gap-5 pt-42 pb-5; }
+  .footer-brand { @apply flex shrink-0 flex-col items-start gap-2; }
+  .footer-brand .logo { @apply h-auto w-[5.625rem]; }
+  .footer-navigation { @apply grid w-full min-w-0 grid-cols-2 gap-x-6 gap-y-10; }
+  .footer-column { @apply flex min-w-0 flex-col gap-6; }
+  .footer-column h2, .footer-service h2 { @apply text-small font-bold; }
+  .footer-column ul { @apply flex flex-col gap-[.875rem]; }
+  .footer-link { @apply hover:text-action-hover; }
+  .footer-services { @apply flex flex-col border-t border-border; }
+  .footer-service { @apply flex min-w-0 flex-col gap-5 py-5; }
+  .payment-logos { @apply grid w-fit max-w-full grid-cols-4 gap-2; }
+  .payment-logo { @apply h-9 w-full object-contain; padding: .375rem .4375rem; }
+  .award-logos { @apply grid max-w-[18rem] grid-cols-4 gap-2; }
+  .award-logo { @apply h-auto max-h-[3.5rem] w-full object-contain; }
+  .country-links { @apply flex max-w-[11rem] flex-wrap gap-2; }
+  .country-link { @apply flex size-8 items-center justify-center rounded-pill hover:bg-muted; }
+  .footer-legal { @apply grid gap-2 py-8 text-caption; }
+  .footer-vat { @apply border-b border-border pb-5; }
+  .footer-contact { @apply flex flex-col gap-2 border-b border-border pb-5; }
+  .provider-marks { @apply flex items-center gap-2; }
+  .commerce-mark { @apply relative block h-9 w-[4.125rem] overflow-hidden; }
+  @variant md {
+    .footer-top { @apply gap-12 pt-16 pb-12; }
+    .footer-navigation { @apply grid-cols-3 gap-x-24 gap-y-24; }
+    .footer-services { @apply flex-row flex-wrap gap-5; }
+    .footer-service { @apply min-w-[40%] flex-1 p-8; }
+    .payment-logos { @apply grid-cols-5; }
+    .award-logos { @apply grid-cols-3; }
+    .country-links { @apply max-w-full; }
+  }
+  @variant lg { .footer-navigation { @apply grid-cols-5 gap-8; } .footer-services { @apply flex-nowrap; } .footer-service { @apply min-w-0 border-r border-border last:border-0; } .footer-contact { @apply flex-row flex-wrap gap-x-6; } }
+  @variant 2xl {
+    .footer-top { @apply flex-row gap-16 pt-24 pb-16; }
+    .footer-brand { @apply items-center; }
+    .footer-brand .logo { @apply w-[8.4903rem]; }
+    .footer-navigation { @apply gap-12; }
+    .footer-service:first-child { @apply pl-0; }
+    .footer-legal { @apply grid-cols-[1fr_auto] gap-x-8; }
+    .footer-vat { @apply col-start-1 row-start-1; }
+    .footer-contact { @apply col-start-1 row-start-2 border-0 pb-0; }
+    .provider-marks { @apply col-start-2 row-span-2 row-start-1 self-center; }
+  }
+  @variant 3xl { .footer-navigation { @apply gap-24; } }
+}
