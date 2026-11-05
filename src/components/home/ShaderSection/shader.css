@@ -1,9 +1,9 @@
 @layer components {
   .shader-section {
-    @apply flex min-h-[19.0625rem] items-center justify-center bg-black px-4 py-8 text-center text-white;
+    @apply relative isolate overflow-hidden flex min-h-[19.0625rem] items-center justify-center bg-black px-4 py-8 text-center text-white;
   }
   .shader-content {
-    @apply flex flex-col items-center gap-8;
+    @apply relative z-10 flex flex-col items-center gap-8;
   }
   .shader-content h2 {
     @apply max-w-[58rem] text-card-mobile font-bold;

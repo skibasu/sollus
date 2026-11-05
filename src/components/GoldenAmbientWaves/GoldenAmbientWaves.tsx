@@ -107,6 +107,7 @@ export default function GoldenAmbientWaves({
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const gl = canvas.getContext("webgl2", {
       alpha: false,
       antialias: false,
@@ -123,6 +124,7 @@ export default function GoldenAmbientWaves({
     let program: WebGLProgram | null = null;
     let vao: WebGLVertexArrayObject | null = null;
     let observer: ResizeObserver | undefined;
+    let updateMotion = () => {};
     let frame = 0;
     let time = 0;
     let lastTime: number | undefined;
@@ -147,6 +149,7 @@ export default function GoldenAmbientWaves({
     function cleanup() {
       cancelAnimationFrame(frame);
       observer?.disconnect();
+      reducedMotion.removeEventListener("change", updateMotion);
       if (vao) context.deleteVertexArray(vao);
       if (program) context.deleteProgram(program);
       shaders.forEach((shader) => context.deleteShader(shader));
@@ -186,10 +189,18 @@ export default function GoldenAmbientWaves({
           target.height = height;
         }
         context.viewport(0, 0, width, height);
+        if (reducedMotion.matches) draw();
       }
       observer = new ResizeObserver(resize);
       observer.observe(canvas);
       resize();
+
+      function draw() {
+        context.uniform1f(uTime, time);
+        context.uniform1f(uIntensity, settings.current.intensity);
+        context.uniform2f(uResolution, target.width, target.height);
+        context.drawArrays(context.TRIANGLES, 0, 3);
+      }
 
       function render(now: number) {
         // Avoid a large jump after returning from an inactive browser tab.
@@ -197,13 +208,17 @@ export default function GoldenAmbientWaves({
           lastTime === undefined ? 0 : Math.min((now - lastTime) / 1000, 0.1);
         lastTime = now;
         time += delta * settings.current.speed;
-        context.uniform1f(uTime, time);
-        context.uniform1f(uIntensity, settings.current.intensity);
-        context.uniform2f(uResolution, target.width, target.height);
-        context.drawArrays(context.TRIANGLES, 0, 3);
+        draw();
         frame = requestAnimationFrame(render);
       }
-      frame = requestAnimationFrame(render);
+      updateMotion = () => {
+        cancelAnimationFrame(frame);
+        lastTime = undefined;
+        if (reducedMotion.matches) draw();
+        else frame = requestAnimationFrame(render);
+      };
+      reducedMotion.addEventListener("change", updateMotion);
+      updateMotion();
     } catch (error) {
       console.error("GoldenAmbientWaves:", error);
       cleanup();
@@ -216,7 +231,7 @@ export default function GoldenAmbientWaves({
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      className={`pointer-events-none absolute inset-0 block h-full w-full bg-[#101010] ${className}`}
+      className={`pointer-events-none absolute inset-0 block h-full w-full bg-black ${className}`}
     />
   );
 }
