@@ -5,14 +5,19 @@ import { useId, useState } from "react";
 import { useLampMotion } from "@/hooks/useLampMotion";
 
 type Props = {
+  /** Rendered size in pixels. A missing dimension preserves the original aspect ratio. */
+  width?: number;
+  height?: number;
   className?: string;
   defaultOn?: boolean;
 };
 
-export default function WallLamp({ className = "", defaultOn = false }: Props) {
+export default function WallLamp({ className = "", defaultOn = false, width, height }: Props) {
+  const renderedWidth = width ?? (height === undefined ? 470 : height * 470 / 428);
+  const renderedHeight = height ?? renderedWidth * 428 / 470;
   const [on, setOn] = useState(defaultOn);
   const id = useId();
-  const { buttonRef, visualRef } = useLampMotion(false);
+  const { buttonRef, visualRef } = useLampMotion(false, 470);
   const gradientId = `${id}-light`;
   const glowId = `${id}-glow`;
 
@@ -23,19 +28,19 @@ export default function WallLamp({ className = "", defaultOn = false }: Props) {
       aria-label={on ? "Wyłącz: Lampa ścienna" : "Włącz: Lampa ścienna"}
       aria-pressed={on}
       onClick={() => setOn((value) => !value)}
-      className={`relative isolate block w-full max-w-[470px] cursor-pointer border-0 bg-transparent p-0 focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-amber-300 ${className}`}
+      style={{ width: renderedWidth }}
+      className={`relative isolate block max-w-full cursor-pointer border-0 bg-transparent p-0 focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-amber-300 ${className}`}
     >
-      <span ref={visualRef} className="pointer-events-none relative block origin-[50%_18%] motion-safe:will-change-transform">
+      <span ref={visualRef} style={{ aspectRatio: `${renderedWidth} / ${renderedHeight}` }} className="pointer-events-none relative block origin-[50%_18%] motion-safe:will-change-transform">
         <Image
           src="/images/lamps/lampa2.png"
           alt="Lampa ścienna"
-          width={470}
-          height={428}
-          sizes="(max-width: 540px) 90vw, 470px"
+          fill
+          sizes={`(max-width: ${renderedWidth}px) 100vw, ${renderedWidth}px`}
           draggable={false}
-          className={`relative z-10 h-auto w-full transition-[filter] duration-400 motion-reduce:transition-none ${on ? "brightness-105" : "brightness-[.78]"}`}
+          className={`z-10 transition-[filter] duration-400 motion-reduce:transition-none ${on ? "brightness-105" : "brightness-[.78]"}`}
         />
-        <svg viewBox="0 0 470 428" aria-hidden="true" className="absolute inset-0 z-20 h-full w-full overflow-visible">
+        <svg viewBox="0 0 470 428" preserveAspectRatio="none" aria-hidden="true" className="absolute inset-0 z-20 h-full w-full overflow-visible">
           <defs>
             <radialGradient id={gradientId}>
               <stop offset="0" stopColor="#f1fcff" />

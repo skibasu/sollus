@@ -5,22 +5,27 @@ import { useId, useState } from "react"
 import { useLampMotion } from "@/hooks/useLampMotion"
 
 type Props = {
+    /** Rendered size in pixels. A missing dimension preserves the original aspect ratio. */
+    width?: number
+    height?: number
     className?: string
     defaultOn?: boolean
 }
 
-export default function CopperLamp({ className = "", defaultOn = false }: Props) {
+export default function CopperLamp({ className = "", defaultOn = false, width, height }: Props) {
+    const renderedWidth = width ?? (height === undefined ? 423 : height * 423 / 393)
+    const renderedHeight = height ?? renderedWidth * 393 / 423
     const [on, setOn] = useState(defaultOn)
     const id = useId()
-    const { buttonRef, visualRef } = useLampMotion(true)
+    const { buttonRef, visualRef } = useLampMotion(true, 423)
     const gradientId = `${id}-light`
     const glowId = `${id}-glow`
 
     return (
-        <button ref={buttonRef} type="button" aria-label={on ? "Wyłącz: Miedziana lampa" : "Włącz: Miedziana lampa"} aria-pressed={on} onClick={() => setOn((value) => !value)} className={`relative isolate block w-full max-w-[423px] cursor-pointer border-0 bg-transparent p-0 focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-amber-300 ${className}`}>
-            <span ref={visualRef} className="pointer-events-none relative block origin-[50%_18%] motion-safe:will-change-transform">
-                <Image src="/images/lamps/lampa3.png" alt="Miedziana lampa" width={423} height={393} sizes="(max-width: 540px) 90vw, 423px" draggable={false} loading="eager" className={`relative z-10 h-auto w-full transition-[filter] duration-400 motion-reduce:transition-none ${on ? "brightness-105" : "brightness-[.78]"}`} />
-                <svg viewBox="0 0 423 393" aria-hidden="true" className="absolute inset-0 z-20 h-full w-full overflow-visible">
+        <button ref={buttonRef} type="button" aria-label={on ? "Wyłącz: Miedziana lampa" : "Włącz: Miedziana lampa"} aria-pressed={on} onClick={() => setOn((value) => !value)} style={{ width: renderedWidth }} className={`relative isolate block max-w-full cursor-pointer border-0 bg-transparent p-0 focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-amber-300 ${className}`}>
+            <span ref={visualRef} style={{ aspectRatio: `${renderedWidth} / ${renderedHeight}` }} className="pointer-events-none relative block origin-[50%_18%] motion-safe:will-change-transform">
+                <Image src="/images/lamps/lampa3.png" alt="Miedziana lampa" fill sizes={`(max-width: ${renderedWidth}px) 100vw, ${renderedWidth}px`} draggable={false} loading="eager" className={`z-10 transition-[filter] duration-400 motion-reduce:transition-none ${on ? "brightness-105" : "brightness-[.78]"}`} />
+                <svg viewBox="0 0 423 393" preserveAspectRatio="none" aria-hidden="true" className="absolute inset-0 z-20 h-full w-full overflow-visible">
                     <defs>
                         <radialGradient id={gradientId}>
                             <stop offset="0" stopColor="#fffef1" />
