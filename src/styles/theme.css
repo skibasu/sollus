@@ -16,6 +16,7 @@
   --color-yellow-hover: #dfac16;
   --color-black-hover: #4a4a4a;
   --color-action: var(--color-yellow);
+  --color-action-bright: #ffd34d;
   --color-action-hover: var(--color-yellow-hover);
   --color-text-default: var(--color-black);
   --color-text-invert: var(--color-white);

@@ -1,9 +1,9 @@
 @layer components {
   .button {
-    @apply inline-flex w-fit max-w-full shrink-0 items-center justify-center rounded-pill px-18 py-3 text-lead font-bold transition-colors disabled:pointer-events-none disabled:opacity-40;
+    @apply inline-flex w-fit max-w-full shrink-0 items-center justify-center rounded-pill px-18 py-3 text-lead font-bold transition-[background-color,color,scale] duration-150 motion-safe:active:scale-[0.98] disabled:pointer-events-none disabled:opacity-40;
   }
   .button--brand {
-    @apply bg-action text-black hover:bg-action-hover active:bg-action-hover;
+    @apply bg-action text-black hover:bg-action-bright active:bg-action;
   }
   .button--dark {
     @apply bg-surface-dark text-white hover:bg-black-hover active:bg-black;
