@@ -64,10 +64,10 @@
     @apply flex size-8 items-center justify-center rounded-pill;
   }
   .footer-legal {
-    @apply grid gap-2 py-8 text-caption;
+    @apply grid gap-2 py-9 text-caption;
   }
   .footer-vat {
-    @apply border-b border-border pb-5;
+    @apply py-3;
   }
   .footer-contact {
     @apply flex flex-col gap-2 border-b border-border pb-5;
@@ -106,10 +106,10 @@
   }
   @variant lg {
     .footer-navigation {
-      @apply grid-cols-5 gap-8;
+      @apply flex justify-between max-w-265 ml-auto;
     }
     .footer-services {
-      @apply flex-nowrap;
+      @apply grid grid-cols-3 gap-8;
     }
     .footer-service {
       @apply min-w-0 border-r border-border last:border-0;
@@ -120,7 +120,7 @@
   }
   @variant 2xl {
     .footer-top {
-      @apply flex-row gap-16 pt-24 pb-16;
+      @apply flex-row  pt-24 pb-16;
     }
     .footer-brand {
       @apply items-center;
@@ -129,22 +129,13 @@
       @apply w-[8.4903rem];
     }
     .footer-navigation {
-      @apply gap-12;
+      @apply gap-24 ml-auto;
     }
     .footer-service:first-child {
       @apply pl-0;
     }
-    .footer-legal {
-      @apply grid-cols-[1fr_auto] gap-x-8;
-    }
-    .footer-vat {
-      @apply col-start-1 row-start-1;
-    }
     .footer-contact {
-      @apply col-start-1 row-start-2 border-0 pb-0;
-    }
-    .provider-marks {
-      @apply col-start-2 row-span-2 row-start-1 self-center;
+      @apply border-0 pb-0;
     }
   }
   @variant 3xl {
