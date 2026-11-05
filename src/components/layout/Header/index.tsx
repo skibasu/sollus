@@ -1,10 +1,11 @@
+import { HeaderSurface } from "./HeaderSurface";
 import { Logo } from "@/components/ui/Logo";
 import { MenuLink, type NavigationLink } from "./MenuLink";
 import { HeaderActions } from "./HeaderActions";
 import { content } from "@/lib/content";
 export function Header({ links }: { links: NavigationLink[] }) {
   return (
-    <header className="site-header">
+    <HeaderSurface>
       <div className="page-container header-inner">
         <Logo inverted />
         <nav
@@ -22,6 +23,6 @@ export function Header({ links }: { links: NavigationLink[] }) {
         </nav>
         <HeaderActions />
       </div>
-    </header>
+    </HeaderSurface>
   );
 }
