@@ -16,7 +16,7 @@
       @apply gap-12;
     }
     .benefits {
-      @apply grid-cols-3 gap-x-5 gap-y-8;
+      @apply grid-cols-5 gap-x-5 gap-y-8;
     }
   }
   @variant lg {
