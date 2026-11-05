@@ -62,6 +62,11 @@
       "gold": "Złota lampa",
       "wall": "Lampa ścienna",
       "copper": "Miedziana lampa"
+    },
+    "slider": {
+      "previous": "Poprzedni slajd",
+      "next": "Następny slajd",
+      "label": "Polecane oświetlenie"
     }
   },
   "benefits": [
