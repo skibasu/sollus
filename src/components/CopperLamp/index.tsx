@@ -1,0 +1,42 @@
+"use client"
+
+import Image from "next/image"
+import { useId, useState } from "react"
+import { useLampMotion } from "@/hooks/useLampMotion"
+
+type Props = {
+    className?: string
+    defaultOn?: boolean
+}
+
+export default function CopperLamp({ className = "", defaultOn = false }: Props) {
+    const [on, setOn] = useState(defaultOn)
+    const id = useId()
+    const { buttonRef, visualRef } = useLampMotion(true)
+    const gradientId = `${id}-light`
+    const glowId = `${id}-glow`
+
+    return (
+        <button ref={buttonRef} type="button" aria-label={on ? "Wyłącz: Miedziana lampa" : "Włącz: Miedziana lampa"} aria-pressed={on} onClick={() => setOn((value) => !value)} className={`relative isolate block w-full max-w-[423px] cursor-pointer border-0 bg-transparent p-0 focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-amber-300 ${className}`}>
+            <span ref={visualRef} className="pointer-events-none relative block origin-[50%_18%] motion-safe:will-change-transform">
+                <Image src="/images/lamps/lampa3.png" alt="Miedziana lampa" width={423} height={393} sizes="(max-width: 540px) 90vw, 423px" draggable={false} loading="eager" className={`relative z-10 h-auto w-full transition-[filter] duration-400 motion-reduce:transition-none ${on ? "brightness-105" : "brightness-[.78]"}`} />
+                <svg viewBox="0 0 423 393" aria-hidden="true" className="absolute inset-0 z-20 h-full w-full overflow-visible">
+                    <defs>
+                        <radialGradient id={gradientId}>
+                            <stop offset="0" stopColor="#fffef1" />
+                            <stop offset=".7" stopColor="#fff1c3" />
+                            <stop offset="1" stopColor="#eec27d" />
+                        </radialGradient>
+                        <filter id={glowId} x="-100%" y="-150%" width="300%" height="400%">
+                            <feGaussianBlur stdDeviation="18" />
+                        </filter>
+                    </defs>
+                    <g className={`transition-opacity duration-400 motion-reduce:transition-none ${on ? "opacity-100" : "opacity-0"}`}>
+                        <ellipse cx={251} cy={261} rx={119} ry={51} transform="rotate(-31 251 261)" fill="#ffc56d" filter={`url(#${glowId})`} opacity=".8" />
+                        <ellipse cx={251} cy={261} rx={119} ry={51} transform="rotate(-31 251 261)" fill={`url(#${gradientId})`} />
+                    </g>
+                </svg>
+            </span>
+        </button>
+    )
+}
