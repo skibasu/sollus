@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 
 /** Animates the visual only; the button keeps a stable pointer hit area. */
-export function useLampMotion(enabled: boolean) {
+export function useLampMotion(enabled: boolean, referenceWidth: number) {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const visualRef = useRef<HTMLSpanElement>(null);
 
@@ -16,14 +16,16 @@ export function useLampMotion(enabled: boolean) {
     let hovering = false, targetX = 0, targetY = 0, x = 0, y = 0, z = 0;
 
     function animate(now: number) {
-      if (!visual) return;
+      if (!visual || !button) return;
       const dt = Math.min((now - (previous || now)) / 1000, 0.05);
       previous = now;
       const blend = 1 - Math.exp(-7 * Math.max(dt, 0.016));
       x += ((hovering ? targetX : 0) - x) * blend;
       y += ((hovering ? targetY : 0) - y) * blend;
       z += ((hovering ? Math.sin((now - started) / 1000 * 2.1) * 1.35 : 0) - z) * blend;
-      visual.style.transform = `perspective(950px) rotateX(${x}deg) rotateY(${y}deg) rotateZ(${z}deg)`;
+      // Keep the same perspective strength when the lamp is resized.
+      const perspective = 950 * button.clientWidth / referenceWidth;
+      visual.style.transform = `perspective(${perspective}px) rotateX(${x}deg) rotateY(${y}deg) rotateZ(${z}deg)`;
       if (hovering || Math.abs(x) + Math.abs(y) + Math.abs(z) > 0.015) {
         frame = requestAnimationFrame(animate);
       } else {
@@ -70,7 +72,7 @@ export function useLampMotion(enabled: boolean) {
       window.removeEventListener("blur", leave);
       reduced.removeEventListener("change", preferenceChanged);
     };
-  }, [enabled]);
+  }, [enabled, referenceWidth]);
 
   return { buttonRef, visualRef };
 }
