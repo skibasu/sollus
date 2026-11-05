@@ -12,7 +12,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 ## Language policy
 
-- Use English exclusively for code and project documentation, including `AGENTS.md` and `spec.md`.
+- Use English exclusively for code and project documentation, including `AGENTS.md` and `SPEC.md`.
 - All comments, variable names, functions, components, types, interfaces, files, folders, tests, and technical messages must be in English. Do not introduce Polish or other languages in these areas.
 - Website content is in Polish. This includes visible copy, navigation labels, buttons, form labels, validation messages, accessibility text, and page metadata intended for visitors.
 - Keep Polish website content separate from English identifiers and technical documentation. Preserve the copy supplied in Figma or approved by the user.
@@ -23,7 +23,8 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - Before writing Next.js code, read the relevant guides in `node_modules/next/dist/docs/`, as instructed above.
 - Follow Tailwind CSS 4 syntax and conventions. Do not automatically carry over configuration from older versions.
 - Do not install additional skills or dependencies without agreement from the user. Swiper is planned for a separate stage.
-- `spec.md` will be completed later. Until then, do not present product assumptions as approved requirements.
+- Do not install or upgrade animation libraries during the current static-layout stage. Preserve existing animation components and installed dependencies. Use CSS and Tailwind for simple hover transitions; defer any new animation dependencies to a later agreement.
+- Use `SPEC.md` for project requirements. Treat its open decisions as unconfirmed; do not present assumptions as approved requirements.
 
 ## Design sources
 
@@ -35,26 +36,29 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 ## Implementation stages
 
-1. Inspect the design system and create shared tokens and React components with their corresponding variants.
-2. Build semantic HTML within React components and responsive styles based on the Figma screens. Reuse the components created in the previous stage.
-3. Add Swiper for React and implement slider behavior in a separate stage.
-4. Add the lamp animations in the hero section last. Agree on the animation approach and assets before this stage.
+1. Reset the starter template while preserving the existing lamp and GoldenAmbientWaves components and their dependencies. Inspect the design system, create shared tokens and React components, then build the responsive Home layout and custom 404 page. Show static lamps in their intended hero positions and a static slide without arrows or progress indicators. Render the complete Shader section content and controls from Figma on a solid black background; defer only the shader effect.
+2. Integrate the existing GoldenAmbientWaves background and Swiper slider. Add arrows and progress indicators during slider initialization. The left arrow selects the previous slide and the right arrow selects the next slide. Hovering the slider must not affect its behavior.
+3. Enable and configure the existing lamp animations, preserving the responsive composition established in Stage 1.
+4. Address backward compatibility after the user supplies the historical browser targets. Until then, target current stable Safari, Chrome, Edge, and Firefox, including the mobile browsers listed in `SPEC.md`.
 
-Do not expand the current stage to include later stages without the user's instruction. Preserve the intended static appearance until interactions and animations are implemented.
+Follow `SPEC.md` for detailed requirements and open decisions. Do not expand the current stage without the user's instruction. Unsupported lamp effects must leave the lamps visible and static; an unsupported shader must use a black background with content preserved.
 
 ## Components and styling
 
 - Inspect existing components and repository conventions first. Extend them instead of creating duplicates.
 - Separate reusable interface elements from page-specific sections. Base component boundaries on responsibility and reuse.
 - Derive shared colors, typography, spacing, radii, and widths from the design system. Use tokens instead of repeating values across components.
-- Match the design's proportions, alignment, image cropping, fonts, and element states. Do not add unapproved decoration or copy.
+- Match the design's proportions, alignment, image cropping, fonts, and element states. Do not add unapproved decoration or copy, except for the explicitly authorized custom 404 design and Polish copy.
 - Use original graphics, icons, and fonts from the design when available. Do not replace them with arbitrary alternatives.
 - Type component props and avoid `any` without a specific justification.
-- Limit client components to elements requiring interaction or browser APIs.
+- Prefer server components and limit `"use client"` to the smallest boundary requiring interaction or browser APIs. Responsive sizing must not require client components.
+- Define viewport-dependent sizes exclusively through responsive Tailwind classes matching Figma. Do not expose `size` or equivalent sizing props for Button, Header, SocialMedia, icons, or other visual components. Avoid `useMedia()`, JavaScript viewport detection, and resize state for responsive styling.
+- GridColumn is the explicit exception to the `size` prop restriction: its fractional `size` value selects statically declared Tailwind grid classes according to Figma, including fractions such as `1/5`, `2/4`, and `5/12`. It does not select a visual component size.
+- Keep the lamps as a shared hero layer across all slides, outside the changing slide content.
 
 ## Responsiveness and accessibility
 
-- Support mobile, tablet, and desktop views. Choose breakpoints based on layout changes in the design and content behavior.
+- Support mobile, tablet, and desktop views using the approved breakpoint table in `SPEC.md`. Derive layout and sizing within those ranges from Figma; do not introduce alternative breakpoints without agreement.
 - Check widths between reference screens for unintended horizontal scrolling, overlapping elements, and clipped content.
 - Avoid separate copies of entire pages for each screen size when a shared structure can support the required layouts.
 - Use semantic HTML, a correct heading hierarchy, image descriptions, and control labels. Provide keyboard support and visible focus states.
