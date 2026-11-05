@@ -1,5 +1,5 @@
 export const spanClasses = {
-  "base": {
+  base: {
     "1/1": "col-span-60",
     "1/2": "col-span-30",
     "2/4": "col-span-30",
@@ -13,9 +13,9 @@ export const spanClasses = {
     "1/3": "col-span-20",
     "2/3": "col-span-40",
     "5/12": "col-span-25",
-    "7/12": "col-span-35"
+    "7/12": "col-span-35",
   },
-  "xs": {
+  xs: {
     "1/1": "xs:col-span-60",
     "1/2": "xs:col-span-30",
     "2/4": "xs:col-span-30",
@@ -29,9 +29,9 @@ export const spanClasses = {
     "1/3": "xs:col-span-20",
     "2/3": "xs:col-span-40",
     "5/12": "xs:col-span-25",
-    "7/12": "xs:col-span-35"
+    "7/12": "xs:col-span-35",
   },
-  "md": {
+  md: {
     "1/1": "md:col-span-60",
     "1/2": "md:col-span-30",
     "2/4": "md:col-span-30",
@@ -45,9 +45,9 @@ export const spanClasses = {
     "1/3": "md:col-span-20",
     "2/3": "md:col-span-40",
     "5/12": "md:col-span-25",
-    "7/12": "md:col-span-35"
+    "7/12": "md:col-span-35",
   },
-  "lg": {
+  lg: {
     "1/1": "lg:col-span-60",
     "1/2": "lg:col-span-30",
     "2/4": "lg:col-span-30",
@@ -61,9 +61,9 @@ export const spanClasses = {
     "1/3": "lg:col-span-20",
     "2/3": "lg:col-span-40",
     "5/12": "lg:col-span-25",
-    "7/12": "lg:col-span-35"
+    "7/12": "lg:col-span-35",
   },
-  "xl": {
+  xl: {
     "1/1": "xl:col-span-60",
     "1/2": "xl:col-span-30",
     "2/4": "xl:col-span-30",
@@ -77,7 +77,7 @@ export const spanClasses = {
     "1/3": "xl:col-span-20",
     "2/3": "xl:col-span-40",
     "5/12": "xl:col-span-25",
-    "7/12": "xl:col-span-35"
+    "7/12": "xl:col-span-35",
   },
   "2xl": {
     "1/1": "2xl:col-span-60",
@@ -93,7 +93,7 @@ export const spanClasses = {
     "1/3": "2xl:col-span-20",
     "2/3": "2xl:col-span-40",
     "5/12": "2xl:col-span-25",
-    "7/12": "2xl:col-span-35"
+    "7/12": "2xl:col-span-35",
   },
   "3xl": {
     "1/1": "3xl:col-span-60",
@@ -109,8 +109,8 @@ export const spanClasses = {
     "1/3": "3xl:col-span-20",
     "2/3": "3xl:col-span-40",
     "5/12": "3xl:col-span-25",
-    "7/12": "3xl:col-span-35"
-  }
+    "7/12": "3xl:col-span-35",
+  },
 } as const;
 export type GridFraction = keyof typeof spanClasses.base;
 export type GridBreakpoint = keyof typeof spanClasses;

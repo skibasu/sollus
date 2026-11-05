@@ -1,159 +1,159 @@
 @layer components {
-    .hero {
-        @apply relative isolate flex w-full items-center justify-center overflow-hidden bg-ink text-white;
-        min-height: 100vh;
-        min-height: 100dvh;
-    }
-    .hero-background {
-        @apply z-[-2] object-cover;
-    }
-    .hero-lamps {
-        @apply pointer-events-none absolute inset-0 z-[-1];
-    }
-    .hero-lamp {
-        @apply absolute max-w-none object-contain;
-        height: auto;
-    }
-    .hero-lamp--gold {
-        width: 14.9375rem;
-        left: calc(50% - 8rem);
-        top: 3.5rem;
-    }
-    .hero-lamp--wall {
-        width: 15.0625rem;
-        left: calc(50% + 4.53125rem);
-        top: 15.875rem;
-    }
-    .hero-lamp--copper {
-        width: 13rem;
-        left: calc(50% - 17.125rem);
-        top: 18.4375rem;
-    }
+  .hero {
+    @apply relative isolate flex w-full items-center justify-center overflow-hidden bg-ink text-white;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+  .hero-background {
+    @apply z-[-2] object-cover;
+  }
+  .hero-lamps {
+    @apply pointer-events-none absolute inset-0 z-[-1];
+  }
+  .hero-lamp {
+    @apply absolute max-w-none object-contain;
+    height: auto;
+  }
+  .hero-lamp--gold {
+    width: 14.9375rem;
+    left: calc(50% - 8rem);
+    top: 3.5rem;
+  }
+  .hero-lamp--wall {
+    width: 15.0625rem;
+    left: calc(50% + 4.53125rem);
+    top: 15.875rem;
+  }
+  .hero-lamp--copper {
+    width: 13rem;
+    left: calc(50% - 17.125rem);
+    top: 18.4375rem;
+  }
+  .hero-content {
+    @apply relative flex justify-center py-32;
+  }
+  .hero-copy {
+    @apply flex max-w-[16rem] flex-col items-center gap-8 text-center;
+  }
+  .hero-copy > p {
+    @apply -mb-4;
+  }
+  .hero-copy h1 {
+    @apply text-hero-mobile font-bold;
+  }
+  .trust-badge {
+    @apply absolute bottom-8 left-1/2 flex -translate-x-1/2 items-center gap-0 rounded-pill bg-ink px-6 py-3 whitespace-nowrap;
+  }
+  @variant md {
     .hero-content {
-        @apply relative flex justify-center py-32;
+      @apply justify-start;
     }
     .hero-copy {
-        @apply flex max-w-[16rem] flex-col items-center gap-8 text-center;
+      @apply max-w-full items-start text-left;
     }
-    .hero-copy > p {
-        @apply -mb-4;
+    .hero-lamp--gold {
+      width: 16.0625rem;
+      left: calc(50% - 8.0625rem);
+      top: 3rem;
     }
-    .hero-copy h1 {
-        @apply text-hero-mobile font-bold;
+    .hero-lamp--wall {
+      width: 18.0625rem;
+      left: calc(50% + 5.3125rem);
+      top: 13.6875rem;
+    }
+    .hero-lamp--copper {
+      width: 17.8268rem;
+      left: calc(50% - 21.9375rem);
+      top: 17.5625rem;
     }
     .trust-badge {
-        @apply absolute bottom-8 left-1/2 flex -translate-x-1/2 items-center gap-0 rounded-pill bg-ink px-6 py-3 whitespace-nowrap;
+      @apply bottom-12;
     }
-    @variant md {
-        .hero-content {
-            @apply justify-start;
-        }
-        .hero-copy {
-            @apply max-w-full items-start text-left;
-        }
-        .hero-lamp--gold {
-            width: 16.0625rem;
-            left: calc(50% - 8.0625rem);
-            top: 3rem;
-        }
-        .hero-lamp--wall {
-            width: 18.0625rem;
-            left: calc(50% + 5.3125rem);
-            top: 13.6875rem;
-        }
-        .hero-lamp--copper {
-            width: 17.8268rem;
-            left: calc(50% - 21.9375rem);
-            top: 17.5625rem;
-        }
-        .trust-badge {
-            @apply bottom-12;
-        }
+  }
+  @variant lg {
+    .trust-badge {
+      @apply gap-3;
+      bottom: 1.625rem;
     }
-    @variant lg {
-        .trust-badge {
-            @apply gap-3;
-            bottom: 1.625rem;
-        }
-        .hero-lamp--gold {
-            width: 16.0625rem;
-            left: calc(50% - 8.8125rem);
-            top: 3.3125rem;
-        }
-        .hero-lamp--wall {
-            width: 18.9375rem;
-            left: calc(50% + 5.0625rem);
-            top: 13.625rem;
-        }
-        .hero-lamp--copper {
-            width: 17.4375rem;
-            left: calc(50% - 21.875rem);
-            top: 17.75rem;
-        }
+    .hero-lamp--gold {
+      width: 16.0625rem;
+      left: calc(50% - 8.8125rem);
+      top: 3.3125rem;
     }
-    @variant xl {
-        .trust-badge {
-            bottom: 2.125rem;
-        }
-        .hero-copy h1 {
-            @apply text-hero;
-        }
-        .hero-lamp--gold {
-            width: 16.4375rem;
-            left: calc(50% - 9.0625rem);
-            top: 3.5rem;
-        }
-        .hero-lamp--wall {
-            width: 19.4375rem;
-            left: calc(50% + 4.875rem);
-            top: 14.0625rem;
-        }
-        .hero-lamp--copper {
-            width: 17.6875rem;
-            left: calc(50% - 22.0625rem);
-            top: 18.0625rem;
-        }
+    .hero-lamp--wall {
+      width: 18.9375rem;
+      left: calc(50% + 5.0625rem);
+      top: 13.625rem;
     }
-    @variant 2xl {
-        .trust-badge {
-            @apply left-auto translate-x-0;
-            right: 1.625rem;
-        }
-        .hero-lamp--gold {
-            width: 19.3125rem;
-            left: calc(50% - 10.25rem);
-            top: 4.375rem;
-        }
-        .hero-lamp--wall {
-            width: 24.5625rem;
-            left: calc(50% + 5.875rem);
-            top: 17.5625rem;
-        }
-        .hero-lamp--copper {
-            width: 21.625rem;
-            left: calc(50% - 27.8125rem);
-            top: 22.875rem;
-        }
+    .hero-lamp--copper {
+      width: 17.4375rem;
+      left: calc(50% - 21.875rem);
+      top: 17.75rem;
     }
-    @variant 3xl {
-        .hero-lamp--gold {
-            width: 23.25rem;
-            left: calc(50% - 12.1875rem);
-            top: 5.1875rem;
-        }
-        .hero-lamp--wall {
-            width: 29.375rem;
-            left: calc(50% + 7.4375rem);
-            top: 20.625rem;
-        }
-        .hero-lamp--copper {
-            width: 26.4375rem;
-            left: calc(50% - 33.5rem);
-            top: 26.9375rem;
-        }
-        .trust-badge {
-            right: max(2rem, calc((100% - 100rem) / 2 - 2.5rem));
-            bottom: 5.1875rem;
-        }
+  }
+  @variant xl {
+    .trust-badge {
+      bottom: 2.125rem;
     }
+    .hero-copy h1 {
+      @apply text-hero;
+    }
+    .hero-lamp--gold {
+      width: 16.4375rem;
+      left: calc(50% - 9.0625rem);
+      top: 3.5rem;
+    }
+    .hero-lamp--wall {
+      width: 19.4375rem;
+      left: calc(50% + 4.875rem);
+      top: 14.0625rem;
+    }
+    .hero-lamp--copper {
+      width: 17.6875rem;
+      left: calc(50% - 22.0625rem);
+      top: 18.0625rem;
+    }
+  }
+  @variant 2xl {
+    .trust-badge {
+      @apply left-auto translate-x-0;
+      right: 1.625rem;
+    }
+    .hero-lamp--gold {
+      width: 19.3125rem;
+      left: calc(50% - 10.25rem);
+      top: 4.375rem;
+    }
+    .hero-lamp--wall {
+      width: 24.5625rem;
+      left: calc(50% + 5.875rem);
+      top: 17.5625rem;
+    }
+    .hero-lamp--copper {
+      width: 21.625rem;
+      left: calc(50% - 27.8125rem);
+      top: 22.875rem;
+    }
+  }
+  @variant 3xl {
+    .hero-lamp--gold {
+      width: 23.25rem;
+      left: calc(50% - 12.1875rem);
+      top: 5.1875rem;
+    }
+    .hero-lamp--wall {
+      width: 29.375rem;
+      left: calc(50% + 7.4375rem);
+      top: 20.625rem;
+    }
+    .hero-lamp--copper {
+      width: 26.4375rem;
+      left: calc(50% - 33.5rem);
+      top: 26.9375rem;
+    }
+    .trust-badge {
+      right: max(2rem, calc((100% - 100rem) / 2 - 2.5rem));
+      bottom: 5.1875rem;
+    }
+  }
 }

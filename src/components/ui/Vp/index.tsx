@@ -9,17 +9,22 @@ export enum VpIcon {
 export function Vp({
   title,
   subtitle,
-  icon
+  icon,
 }: {
   title: string;
   subtitle: string;
   icon: VpIcon;
 }) {
-  return <div className="value-proposition">
-    <Icon name={icon} className="size-8" />
-    <div className="value-proposition-copy">
-      <h2>{title}</h2>
-      <p>{subtitle}</p>
+  return (
+    <div className="value-proposition">
+      <Icon
+        name={icon}
+        className="size-8"
+      />
+      <div className="value-proposition-copy">
+        <h2>{title}</h2>
+        <p>{subtitle}</p>
+      </div>
     </div>
-  </div>;
+  );
 }

@@ -7,9 +7,22 @@ export type NavigationLink = {
 export function MenuLink({
   href,
   label,
-  chevron = false
+  chevron = false,
 }: Omit<NavigationLink, "id"> & {
   chevron?: boolean;
 }) {
-  return <a className="menu-link" href={href}>{label}{chevron && <Icon name="chevron" className="size-4" />}</a>;
+  return (
+    <a
+      className="menu-link"
+      href={href}
+    >
+      {label}
+      {chevron && (
+        <Icon
+          name="chevron"
+          className="size-4"
+        />
+      )}
+    </a>
+  );
 }

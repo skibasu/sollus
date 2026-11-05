@@ -1,7 +1,28 @@
 @layer components {
-  .social-media { @apply flex items-center gap-3; }
-  .social-media-link { @apply flex size-[1.125rem] items-center justify-center rounded-pill hover:bg-muted; }
-  .social-media-icon { @apply size-[1.125rem]; }
-  @variant lg { .social-media-link, .social-media-icon { @apply size-5; } }
-  @variant 2xl { .social-media { @apply gap-[.125rem]; } .social-media-link { @apply size-12; } .social-media-icon { @apply size-6; } }
+  .social-media {
+    @apply flex items-center gap-3;
+  }
+  .social-media-link {
+    @apply flex size-[1.125rem] items-center justify-center rounded-pill hover:bg-muted;
+  }
+  .social-media-icon {
+    @apply size-[1.125rem];
+  }
+  @variant lg {
+    .social-media-link,
+    .social-media-icon {
+      @apply size-5;
+    }
+  }
+  @variant 2xl {
+    .social-media {
+      @apply gap-[.125rem];
+    }
+    .social-media-link {
+      @apply size-12;
+    }
+    .social-media-icon {
+      @apply size-6;
+    }
+  }
 }

@@ -29,14 +29,14 @@
   --color-catalog: #fdf8eb;
   --color-smart: #e8e4df;
   --radius-none: 0;
-  --radius-control: .5rem;
+  --radius-control: 0.5rem;
   --radius-card: 1.5rem;
   --radius-pill: 62.4375rem;
-  --text-caption: .75rem;
+  --text-caption: 0.75rem;
   --text-caption--line-height: 1.1;
-  --text-small: .8125rem;
+  --text-small: 0.8125rem;
   --text-small--line-height: 1.1;
-  --text-body: .875rem;
+  --text-body: 0.875rem;
   --text-body--line-height: 1.2;
   --text-lead: 1rem;
   --text-lead--line-height: 1.2;
@@ -55,4 +55,6 @@
   --spacing-58: 3.625rem;
   --spacing-86: 5.375rem;
 }
-@theme inline { --font-sans: var(--font-red-hat-display); }
+@theme inline {
+  --font-sans: var(--font-red-hat-display);
+}

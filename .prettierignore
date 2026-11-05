@@ -1,0 +1,4 @@
+# Generated files and original design assets
+package-lock.json
+next-env.d.ts
+public/

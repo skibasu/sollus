@@ -54,10 +54,7 @@
   },
   "hero": {
     "eyebrow": "Bestsellery SOLLUX",
-    "title": [
-      "Kolor i forma",
-      "w nowym świetle"
-    ],
+    "title": ["Kolor i forma", "w nowym świetle"],
     "button": "Sprawdź bestsellery",
     "rating": "4.8",
     "ratingLabel": "Uwielbiany przez klientów",
@@ -177,11 +174,7 @@
       },
       {
         "title": "Wpsółpraca",
-        "links": [
-          "Dla Architekta",
-          "Modele 3D",
-          "Dystrybucja"
-        ]
+        "links": ["Dla Architekta", "Modele 3D", "Dystrybucja"]
       }
     ],
     "payments": "Płatności i dostawy",

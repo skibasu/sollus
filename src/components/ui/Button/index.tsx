@@ -7,8 +7,15 @@ type Shared = {
   appearance?: Appearance;
   className?: string;
 };
-export function buttonClasses(appearance: Appearance = "brand", className?: string) {
-  return classes("button", appearance === "brand" ? "button--brand" : "button--dark", className);
+export function buttonClasses(
+  appearance: Appearance = "brand",
+  className?: string,
+) {
+  return classes(
+    "button",
+    appearance === "brand" ? "button--brand" : "button--dark",
+    className,
+  );
 }
 export function Button({
   label,
@@ -17,7 +24,15 @@ export function Button({
   type = "button",
   ...props
 }: Shared & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children">) {
-  return <button type={type} className={buttonClasses(appearance, className)} {...props}>{label}</button>;
+  return (
+    <button
+      type={type}
+      className={buttonClasses(appearance, className)}
+      {...props}
+    >
+      {label}
+    </button>
+  );
 }
 export function ButtonLink({
   label,
@@ -25,8 +40,17 @@ export function ButtonLink({
   className,
   href,
   ...props
-}: Shared & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "children" | "href"> & {
-  href: string;
-}) {
-  return <Link href={href} className={buttonClasses(appearance, className)} {...props}>{label}</Link>;
+}: Shared &
+  Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "children" | "href"> & {
+    href: string;
+  }) {
+  return (
+    <Link
+      href={href}
+      className={buttonClasses(appearance, className)}
+      {...props}
+    >
+      {label}
+    </Link>
+  );
 }

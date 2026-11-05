@@ -1,7 +1,22 @@
 @layer components {
-  .value-proposition { @apply flex min-w-0 items-center gap-4 py-1; }
-  .value-proposition-copy { @apply flex min-w-0 flex-col gap-2; }
-  .value-proposition h2 { @apply text-lead leading-[1.1] font-bold; }
-  .value-proposition p { @apply text-body; }
-  @variant md { .value-proposition { @apply h-34 flex-col gap-6 p-4 text-center; } .value-proposition h2 { @apply text-vp; } }
+  .value-proposition {
+    @apply flex min-w-0 items-center gap-4 py-1;
+  }
+  .value-proposition-copy {
+    @apply flex min-w-0 flex-col gap-2;
+  }
+  .value-proposition h2 {
+    @apply text-lead leading-[1.1] font-bold;
+  }
+  .value-proposition p {
+    @apply text-body;
+  }
+  @variant md {
+    .value-proposition {
+      @apply h-34 flex-col gap-6 p-4 text-center;
+    }
+    .value-proposition h2 {
+      @apply text-vp;
+    }
+  }
 }

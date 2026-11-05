@@ -77,13 +77,13 @@ At the beginning of Stage 1, reset the default Next.js starter template before b
 Use these explicitly requested minimum-width breakpoints, defined consistently in pixels in the Tailwind theme:
 
 | Name | Minimum viewport width |
-| --- | --- |
-| xs | 360px |
-| md | 768px |
-| lg | 1080px |
-| xl | 1280px |
-| 2xl | 1440px |
-| 3xl | 1920px |
+| ---- | ---------------------- |
+| xs   | 360px                  |
+| md   | 768px                  |
+| lg   | 1080px                 |
+| xl   | 1280px                 |
+| 2xl  | 1440px                 |
+| 3xl  | 1920px                 |
 
 Reset default Tailwind breakpoint values before defining this set; do not retain an implicit `sm` breakpoint or mix pixel and rem breakpoint definitions. Layout dimensions and typography still use rem values.
 
@@ -227,7 +227,6 @@ The animated lamps are existing, ready-made components. Preserve and configure t
 ## Open decisions
 
 1. The user will provide historical browser targets before the final compatibility stage.
-
 
 ## Scalable architecture and stylesheet organization
 
