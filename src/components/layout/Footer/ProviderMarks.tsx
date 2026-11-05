@@ -3,18 +3,22 @@ import { content } from "@/lib/content";
 export function ProviderMarks() {
   return (
     <div className="provider-marks">
-      <span
-        role="img"
-        aria-label={content.footer.providerReviews}
+      <a
+        href="https://idomods.pl/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={content.footer.providerDesign}
       >
         <Icon
           name="providerReviews"
           className="h-9 w-[6.125rem]"
         />
-      </span>
-      <span
+      </a>
+      <a
+        href="https://www.idosell.com/pl"
+        target="_blank"
+        rel="noopener noreferrer"
         className="commerce-mark"
-        role="img"
         aria-label={content.footer.providerCommerce}
       >
         <Icon
@@ -61,7 +65,7 @@ export function ProviderMarks() {
           name="providerDetail"
           className="absolute top-[48.75%] left-[12.55%]"
         />
-      </span>
+      </a>
     </div>
   );
 }
