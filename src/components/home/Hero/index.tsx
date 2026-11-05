@@ -1,4 +1,6 @@
+import { Suspense } from "react";
 import Image from "next/image";
+import { HeroSlider } from "./HeroSlider";
 import { ButtonLink } from "@/components/ui/Button";
 import { HeroLamps } from "./HeroLamps";
 import { TrustBadge } from "./TrustBadge";
@@ -9,14 +11,20 @@ export function Hero() {
       className="hero"
       aria-labelledby="hero-heading"
     >
-      <Image
-        src="/images/design/hero.webp"
-        fill
-        preload
-        alt=""
-        sizes="100vw"
-        className="hero-background"
-      />
+      <Suspense
+        fallback={
+          <Image
+            src="/images/design/hero.webp"
+            fill
+            preload
+            alt=""
+            sizes="100vw"
+            className="hero-background"
+          />
+        }
+      >
+        <HeroSlider />
+      </Suspense>
       <HeroLamps />
       <div className="page-container hero-content">
         <div className="hero-copy">

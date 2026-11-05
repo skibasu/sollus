@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "swiper/css" layer(components);
+@import "swiper/css/effect-fade" layer(components);
 @import "../styles/theme.css";
 @import "../styles/base.css";
 @import "../components/ui/Button/button.css";
