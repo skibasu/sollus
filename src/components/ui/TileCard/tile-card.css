@@ -1,6 +1,6 @@
 @layer components {
   .promotional-grid {
-    @apply flex flex-col gap-4 md:gap-5;
+    @apply flex flex-col gap-4 md:gap-5 3xl:gap-4;
   }
   .promotion-row {
     column-gap: 0;
@@ -164,6 +164,12 @@
     }
   }
   @variant 3xl {
+    .promotion-row > :first-child {
+      margin-right: 0.5rem;
+    }
+    .promotion-row > :last-child {
+      margin-left: 0.5rem;
+    }
     .tile-card--configurator .tile-image {
       right: 0.9375rem;
       top: 0.625rem;

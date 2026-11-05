@@ -1,8 +1,8 @@
 import { Icon } from "@/components/ui/Icon";
 import { content } from "@/lib/content";
-export function TrustBadge() {
+export function TrustBadge({ href = "#" }: { href?: string } = {}) {
   return (
-    <div className="trust-badge">
+    <a className="trust-badge" href={href}>
       <span className="flex items-center gap-1">
         <strong className="text-vp">{content.hero.rating}</strong>
         <Icon
@@ -11,6 +11,6 @@ export function TrustBadge() {
         />
       </span>
       <span className="text-small">{content.hero.ratingLabel}</span>
-    </div>
+    </a>
   );
 }

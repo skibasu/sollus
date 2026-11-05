@@ -46,7 +46,7 @@
     @apply text-hero-mobile font-bold;
   }
   .trust-badge {
-    @apply absolute bottom-[2.0625rem] left-1/2 flex -translate-x-1/2 items-center gap-0 rounded-pill bg-ink px-6 py-3 whitespace-nowrap;
+    @apply absolute bottom-[2.0625rem] left-1/2 flex -translate-x-1/2 cursor-pointer items-center gap-0 rounded-pill bg-hero-control px-6 py-3 whitespace-nowrap 3xl:h-[2.9375rem] 3xl:py-0;
   }
   @variant md {
     .hero-content {
@@ -191,7 +191,7 @@
     inset: 0;
   }
   .hero-arrow {
-    @apply absolute hidden h-12 w-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-pill bg-ink text-white;
+    @apply absolute hidden h-12 w-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-pill bg-hero-control text-white;
     pointer-events: auto;
     border: 0.0625rem solid white;
   }
