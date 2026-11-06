@@ -2,6 +2,8 @@
 
 A responsive Polish lighting landing page built with Next.js App Router, React, TypeScript, and Tailwind CSS 4.
 
+[Project report](PROJECT-REPORT.md)
+
 ## Development
 
 - `npm run dev`: start the development server.
