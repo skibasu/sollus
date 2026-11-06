@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { content } from "@/lib/content";
-import { publicAsset } from "@/lib/public-asset";
 export function ProviderMarks() {
   return (
     <div className="provider-marks">
@@ -11,7 +10,7 @@ export function ProviderMarks() {
         aria-label={content.footer.providerDesign}
       >
         <Image
-          src={publicAsset("/images/providers/idomods.svg")}
+          src="/images/providers/idomods.svg"
           alt=""
           width={98}
           height={36}
@@ -24,7 +23,7 @@ export function ProviderMarks() {
         aria-label={content.footer.providerCommerce}
       >
         <Image
-          src={publicAsset("/images/providers/idosell.svg")}
+          src="/images/providers/idosell.svg"
           alt=""
           width={66}
           height={36}
