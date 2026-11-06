@@ -98,24 +98,26 @@ export default function CopperLamp({
               on ? "opacity-100" : "opacity-0",
             )}
           >
-            <ellipse
-              cx={251}
-              cy={261}
-              rx={119}
-              ry={51}
-              transform="rotate(-31 251 261)"
-              fill="#ffc56d"
-              filter={`url(#${glowId})`}
-              opacity=".8"
-            />
-            <ellipse
-              cx={251}
-              cy={261}
-              rx={119}
-              ry={51}
-              transform="rotate(-31 251 261)"
-              fill={`url(#${gradientId})`}
-            />
+            <g className="lamp-glow">
+              <ellipse
+                cx={251}
+                cy={261}
+                rx={119}
+                ry={51}
+                transform="rotate(-31 251 261)"
+                fill="#ffc56d"
+                filter={`url(#${glowId})`}
+                opacity=".8"
+              />
+              <ellipse
+                cx={251}
+                cy={261}
+                rx={119}
+                ry={51}
+                transform="rotate(-31 251 261)"
+                fill={`url(#${gradientId})`}
+              />
+            </g>
           </g>
         </svg>
       </span>

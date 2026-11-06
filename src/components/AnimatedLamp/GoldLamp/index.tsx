@@ -98,24 +98,26 @@ export default function GoldLamp({
               on ? "opacity-100" : "opacity-0",
             )}
           >
-            <ellipse
-              cx={214}
-              cy={274}
-              rx={117}
-              ry={66}
-              transform="rotate(-43 214 274)"
-              fill="#ffc56d"
-              filter={`url(#${glowId})`}
-              opacity=".8"
-            />
-            <ellipse
-              cx={214}
-              cy={274}
-              rx={117}
-              ry={66}
-              transform="rotate(-43 214 274)"
-              fill={`url(#${gradientId})`}
-            />
+            <g className="lamp-glow">
+              <ellipse
+                cx={214}
+                cy={274}
+                rx={117}
+                ry={66}
+                transform="rotate(-43 214 274)"
+                fill="#ffc56d"
+                filter={`url(#${glowId})`}
+                opacity=".8"
+              />
+              <ellipse
+                cx={214}
+                cy={274}
+                rx={117}
+                ry={66}
+                transform="rotate(-43 214 274)"
+                fill={`url(#${gradientId})`}
+              />
+            </g>
           </g>
         </svg>
       </span>
