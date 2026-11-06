@@ -6,12 +6,6 @@ export function FooterLink({ href, label }: { href: string; label: string }) {
       className="footer-link"
     >
       {label}
-      <span
-        aria-hidden="true"
-        className="footer-link-highlight"
-      >
-        {label}
-      </span>
     </a>
   );
 }
