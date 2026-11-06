@@ -64,7 +64,7 @@
     @apply flex size-8 items-center justify-center rounded-pill;
   }
   .footer-legal {
-    @apply grid gap-2 py-9 text-caption;
+    @apply grid gap-2 py-8 text-caption;
   }
   .footer-vat {
     @apply py-3;
