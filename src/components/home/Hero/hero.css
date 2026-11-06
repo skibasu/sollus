@@ -199,6 +199,7 @@
     animation: hero-image-enter 800ms ease-in both;
   }
   .hero-slider-controls {
+    --hero-arrow-inset: max(1rem, calc(50% - 10.25rem));
     pointer-events: none;
     position: absolute;
     inset: 0;
@@ -214,10 +215,10 @@
     top: calc(100% - 6.5625rem);
   }
   .hero-arrow--previous {
-    left: 1rem;
+    left: var(--hero-arrow-inset);
   }
   .hero-arrow--next {
-    right: 1rem;
+    right: var(--hero-arrow-inset);
   }
   .hero-arrow:focus-visible {
     outline: 0.125rem solid #f2bf25;
@@ -258,12 +259,6 @@
     .hero-arrow {
       top: calc(100% - 7.1875rem);
     }
-    .hero-arrow--previous {
-      left: calc(50% - 10.25rem);
-    }
-    .hero-arrow--next {
-      right: calc(50% - 10.25rem);
-    }
   }
   @variant xl {
     .hero-progress {
@@ -288,11 +283,8 @@
     .hero-arrow {
       top: 50%;
     }
-    .hero-arrow--previous {
-      left: 4.5rem;
-    }
-    .hero-arrow--next {
-      right: 4.5rem;
+    .hero-slider-controls {
+      --hero-arrow-inset: calc((100% - var(--breakpoint-3xl)) / 2 + 4.5rem);
     }
   }
 }
