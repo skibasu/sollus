@@ -11,7 +11,7 @@
     min-height: 18rem;
   }
   .tile-artwork {
-    @apply pointer-events-none absolute inset-0 z-[-1] transition-transform duration-500 ease-out;
+    @apply pointer-events-none absolute inset-0 z-[-1] transition-transform duration-600 ease-out;
   }
   .tile-card:hover .tile-artwork,
   .tile-card:focus-visible .tile-artwork {

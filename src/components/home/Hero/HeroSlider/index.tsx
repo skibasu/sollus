@@ -24,7 +24,6 @@ export function HeroSlider() {
     const update = () => {
       const slider = instance.current;
       if (!slider) return;
-      slider.allowTouchMove = ready;
       slider.params.speed = preference.matches
         ? 0
         : slider.originalParams.speed;

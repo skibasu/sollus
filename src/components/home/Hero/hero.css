@@ -46,7 +46,7 @@
     @apply text-hero-mobile font-bold;
   }
   .trust-badge {
-    @apply absolute bottom-[2.0625rem] left-1/2 flex -translate-x-1/2 cursor-pointer items-center gap-0 rounded-pill bg-hero-control px-6 py-3 whitespace-nowrap 3xl:h-[2.9375rem] 3xl:py-0;
+    @apply absolute bottom-[2.0625rem] left-1/2 flex -translate-x-1/2 cursor-pointer items-center gap-0 rounded-pill bg-hero-control px-6 py-3 whitespace-nowrap hover:bg-ink/55 motion-safe:transition-colors motion-safe:duration-250 motion-safe:ease-in-out 3xl:h-[2.9375rem] 3xl:py-0;
   }
   @variant md {
     .hero-content {
@@ -209,9 +209,9 @@
     }
   }
   .hero-arrow {
-    @apply absolute hidden h-12 w-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-pill bg-hero-control text-white hover:bg-ink/55 motion-safe:transition-colors;
+    @apply absolute flex size-9 max-md:text-sm md:size-10 md:max-lg:text-base lg:size-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-pill bg-hero-control text-white hover:bg-ink/55 motion-safe:transition-colors motion-safe:duration-250 motion-safe:ease-in-out;
     pointer-events: auto;
-    border: 0.0625rem solid white;
+    top: calc(100% - 6.5625rem);
   }
   .hero-arrow--previous {
     left: 1rem;
@@ -247,13 +247,15 @@
     .hero-progress {
       bottom: 7.8125rem;
     }
+    .hero-arrow {
+      top: calc(100% - 7.8125rem);
+    }
   }
   @variant lg {
     .hero-progress {
       bottom: 7.1875rem;
     }
     .hero-arrow {
-      display: flex;
       top: calc(100% - 7.1875rem);
     }
     .hero-arrow--previous {
@@ -285,7 +287,6 @@
     }
     .hero-arrow {
       top: 50%;
-      border: 0;
     }
     .hero-arrow--previous {
       left: 4.5rem;
