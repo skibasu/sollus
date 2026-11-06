@@ -1,6 +1,6 @@
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
 import Link from "next/link";
-import { classes } from "@/lib/classes";
+import clsx from "clsx";
 type Appearance = "brand" | "dark";
 type Shared = {
   label: string;
@@ -11,7 +11,7 @@ export function buttonClasses(
   appearance: Appearance = "brand",
   className?: string,
 ) {
-  return classes(
+  return clsx(
     "button",
     appearance === "brand" ? "button--brand" : "button--dark",
     className,

@@ -1,5 +1,5 @@
 import { artwork, type IconName } from "./artwork";
-import { classes } from "@/lib/classes";
+import clsx from "clsx";
 type Props = {
   name: IconName;
   className?: string;
@@ -8,7 +8,7 @@ export function Icon({ name, className }: Props) {
   return (
     <span
       aria-hidden="true"
-      className={classes("svg-artwork", className)}
+      className={clsx("svg-artwork", className)}
       dangerouslySetInnerHTML={{
         __html: artwork[name],
       }}

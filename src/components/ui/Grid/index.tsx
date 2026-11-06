@@ -1,11 +1,11 @@
 import type { HTMLAttributes } from "react";
-import { classes } from "@/lib/classes";
+import clsx from "clsx";
 import { spanClasses, type GridBreakpoint, type GridFraction } from "./classes";
 type GridSize = GridFraction | Partial<Record<GridBreakpoint, GridFraction>>;
 export function Grid({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={classes(
+      className={clsx(
         "grid grid-cols-[repeat(60,minmax(0,1fr))]",
         className,
       )}
@@ -31,7 +31,7 @@ export function GridColumn({
   );
   return (
     <div
-      className={classes("min-w-0", ...spans, className)}
+      className={clsx("min-w-0", ...spans, className)}
       {...props}
     />
   );
