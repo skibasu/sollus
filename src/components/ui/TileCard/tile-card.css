@@ -164,21 +164,25 @@
     }
   }
   @variant 3xl {
-    .promotion-row > :first-child {
-      margin-right: 0.5rem;
+    .tile-artwork {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
     }
-    .promotion-row > :last-child {
-      margin-left: 0.5rem;
+    .tile-artwork > img {
+      opacity: 0;
     }
-    .tile-card--configurator .tile-image {
-      right: 0.9375rem;
-      top: 0.625rem;
+    .tile-card--thoro .tile-artwork {
+      background-image: url("../../../../public/images/design/thoro-desktop.webp");
     }
-    .tile-card--catalog .tile-image {
-      right: 0.8125rem;
+    .tile-card--configurator .tile-artwork {
+      background-image: url("../../../../public/images/design/configurator-desktop.webp");
     }
-    .tile-card--smart .tile-image {
-      right: 0.5625rem;
+    .tile-card--catalog .tile-artwork {
+      background-image: url("../../../../public/images/design/catalog-desktop.webp");
+    }
+    .tile-card--smart .tile-artwork {
+      background-image: url("../../../../public/images/design/smart-desktop.webp");
     }
   }
   @media (prefers-reduced-motion: reduce) {
@@ -189,5 +193,20 @@
     .tile-card:focus-visible .tile-artwork {
       @apply scale-100;
     }
+  }
+}
+
+@variant 3xl {
+  .promotion-row {
+    grid-template-columns: 648fr 936fr;
+    column-gap: 1rem;
+  }
+  .promotion-row + .promotion-row {
+    grid-template-columns: 936fr 648fr;
+  }
+  .promotion-row > :first-child,
+  .promotion-row > :last-child {
+    grid-column: span 1;
+    margin-inline: 0;
   }
 }
