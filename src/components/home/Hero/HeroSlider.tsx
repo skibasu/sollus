@@ -1,13 +1,21 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import type { Swiper as SwiperInstance } from "swiper";
 import { content } from "@/lib/content";
 
+import { HeroLamps } from "./HeroLamps";
+
+type IntroPhase = "loading" | "image" | "lamps" | "ready";
+
 export function HeroSlider() {
+  const [phase, setPhase] = useState<IntroPhase>("loading");
+  const ready = phase === "ready";
+  const startImage = () =>
+    setPhase((current) => (current === "loading" ? "image" : current));
   const instance = useRef<SwiperInstance | null>(null);
   const transitioning = useRef(false);
   const activeSlide = useRef(0);
@@ -17,18 +25,21 @@ export function HeroSlider() {
     const update = () => {
       const slider = instance.current;
       if (!slider) return;
+      slider.allowTouchMove = ready;
       slider.params.speed = preference.matches ? 0 : 600;
-      if (preference.matches) slider.autoplay.stop();
+      if (!ready || preference.matches) slider.autoplay.stop();
       else slider.autoplay.start();
     };
     update();
     preference.addEventListener("change", update);
     return () => preference.removeEventListener("change", update);
-  }, []);
+  }, [ready]);
   return (
     <>
       <Swiper
         className="hero-slider"
+        data-intro={phase}
+        allowTouchMove={false}
         modules={[Autoplay, EffectFade]}
         effect="fade"
         fadeEffect={{ crossFade: true }}
@@ -41,10 +52,11 @@ export function HeroSlider() {
           waitForTransition: true,
         }}
         onSwiper={(slider) => {
+          slider.autoplay.stop();
           instance.current = slider;
         }}
         onAutoplayTimeLeft={(slider, _time, remaining) => {
-          if (transitioning.current) return;
+          if (!ready || transitioning.current) return;
           bars.current.forEach((bar, index) => {
             if (bar)
               bar.style.transform = `scaleX(${index === slider.realIndex ? 1 - remaining : 0})`;
@@ -74,11 +86,26 @@ export function HeroSlider() {
               alt=""
               sizes="100vw"
               className="hero-slide-image"
+              onLoad={index === 0 ? startImage : undefined}
+              onError={index === 0 ? startImage : undefined}
+              onAnimationEnd={(event) => {
+                if (
+                  phase === "image" &&
+                  event.animationName === "hero-image-enter"
+                ) {
+                  setPhase("lamps");
+                }
+              }}
             />
           </SwiperSlide>
         ))}
       </Swiper>
+      <HeroLamps
+        intro={phase}
+        onIntroEnd={() => setPhase("ready")}
+      />
       <div
+        inert={!ready}
         className="hero-slider-controls"
         aria-label={content.hero.slider.label}
       >

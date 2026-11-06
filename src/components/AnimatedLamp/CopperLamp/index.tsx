@@ -52,7 +52,7 @@ export default function CopperLamp({
           sizes={`(max-width: ${renderedWidth}px) 100vw, ${renderedWidth}px`}
           draggable={false}
           loading="eager"
-          className={`z-10 transition-[filter] duration-400 motion-reduce:transition-none ${on ? "brightness-105" : "brightness-[.78]"}`}
+          className={`lamp-image z-10 transition-[filter] duration-400 motion-reduce:transition-none ${on ? "brightness-105" : "brightness-[.78]"}`}
         />
         <svg
           viewBox="0 0 423 393"
@@ -86,7 +86,7 @@ export default function CopperLamp({
             </filter>
           </defs>
           <g
-            className={`transition-opacity duration-400 motion-reduce:transition-none ${on ? "opacity-100" : "opacity-0"}`}
+            className={`lamp-light transition-opacity duration-400 motion-reduce:transition-none ${on ? "opacity-100" : "opacity-0"}`}
           >
             <ellipse
               cx={251}

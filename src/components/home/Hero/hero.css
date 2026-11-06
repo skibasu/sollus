@@ -183,8 +183,20 @@
     object-fit: cover;
     transform: scale(1);
   }
-  .swiper-slide-active .hero-slide-image {
+  .hero-slider[data-intro="loading"] .hero-slide-image,
+  .hero-lamps[data-intro="loading"] {
+    visibility: hidden;
+  }
+  .hero-slider:not([data-intro="loading"])
+    .swiper-slide-active
+    .hero-slide-image {
     animation: hero-image-enter 800ms var(--ease-out) both;
+  }
+  .hero-lamps[data-intro="image"],
+  .hero-slider[data-intro="image"] .swiper-slide-active .hero-slide-image {
+    --hero-image-start-scale: 1;
+    --hero-image-start-opacity: 0;
+    animation: hero-image-enter 800ms ease-in both;
   }
   .hero-slider-controls {
     pointer-events: none;
@@ -280,18 +292,81 @@
 }
 @keyframes hero-image-enter {
   from {
-    transform: scale(1.05);
+    transform: scale(var(--hero-image-start-scale, 1.05));
+    opacity: var(--hero-image-start-opacity, 1);
   }
   to {
     transform: scale(1);
+    opacity: 1;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-slide-image,
-  .swiper-slide-active .hero-slide-image {
+  .hero-slider:not([data-intro="loading"])
+    .swiper-slide-active
+    .hero-slide-image {
     transform: none;
-    animation: none;
+    animation: hero-image-enter 1ms both;
+    --hero-image-start-scale: 1;
+    --hero-image-start-opacity: 1;
     transition: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-lamps[data-intro="image"] {
+    animation: none;
+  }
+}
+
+.hero-lamp--gold {
+  --hero-lamp-delay: 250ms;
+}
+
+.hero-lamp--wall {
+  --hero-lamp-delay: 500ms;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-lamps:is([data-intro="loading"], [data-intro="image"]) .lamp-image {
+    filter: brightness(0.78);
+    transition: none;
+  }
+
+  .hero-lamps:is([data-intro="loading"], [data-intro="image"]) .lamp-light {
+    opacity: 0;
+    transition: none;
+  }
+
+  .hero-lamps[data-intro="lamps"] .lamp-image {
+    animation: hero-lamp-brightness 500ms ease var(--hero-lamp-delay, 0ms) both;
+  }
+
+  .hero-lamps[data-intro="lamps"] .lamp-light {
+    animation: hero-lamp-light 500ms ease var(--hero-lamp-delay, 0ms) both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-lamps[data-intro="lamps"] .lamp-light {
+    animation: hero-lamp-light 1ms step-start both;
+  }
+}
+
+@keyframes hero-lamp-brightness {
+  from {
+    filter: brightness(0.78);
+  }
+  to {
+    filter: brightness(1.05);
+  }
+}
+
+@keyframes hero-lamp-light {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
