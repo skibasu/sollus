@@ -8,7 +8,7 @@
   }
 
   .site-header {
-    @apply fixed inset-x-0 top-0 z-50 bg-transparent text-white;
+    @apply fixed inset-x-0 top-0 z-50 bg-transparent text-white transition-colors duration-250 ease-in-out motion-reduce:transition-none;
   }
 
   .site-header[data-scrolled] {
@@ -80,6 +80,10 @@
 
   .header-search-field input {
     @apply w-full min-w-0 flex-1 bg-transparent text-body text-inherit outline-none placeholder:text-current;
+  }
+
+  .header-search-field input::-webkit-search-cancel-button {
+    display: none;
   }
 
   .header-search-field:focus-within {

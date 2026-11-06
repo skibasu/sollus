@@ -17,6 +17,7 @@ export function Header({ links }: { links: NavigationLink[] }) {
               key={link.id}
               href={link.href}
               label={link.label}
+              //TODO  : This is a temporary solution to limit the number of chevrons displayed.
               chevron={index < 3}
             />
           ))}
