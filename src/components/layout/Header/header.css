@@ -151,7 +151,7 @@
     }
 
     .header-search {
-      @apply min-w-[9rem] flex-1;
+      @apply min-w-36 max-w-92.5 flex-1;
       order: -1;
       margin-right: clamp(0.5rem, calc(22.5vw - 19.75rem), 2.75rem);
     }
