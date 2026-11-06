@@ -11,6 +11,7 @@ export function MenuLink({
 }: Omit<NavigationLink, "id"> & {
   chevron?: boolean;
 }) {
+  // TODO: Use next/link for menu items when their destination routes are added.
   return (
     <a
       className="menu-link"
