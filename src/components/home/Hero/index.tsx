@@ -2,7 +2,6 @@ import { Suspense } from "react";
 import Image from "next/image";
 import { HeroSlider } from "./HeroSlider";
 import { ButtonLink } from "@/components/ui/Button";
-import { HeroLamps } from "./HeroLamps";
 import { TrustBadge } from "./TrustBadge";
 import { content } from "@/lib/content";
 export function Hero() {
@@ -25,7 +24,6 @@ export function Hero() {
       >
         <HeroSlider />
       </Suspense>
-      <HeroLamps />
       <div className="page-container hero-content">
         <div className="hero-copy">
           <p className="text-lead">{content.hero.eyebrow}</p>
