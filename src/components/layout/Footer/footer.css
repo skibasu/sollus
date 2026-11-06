@@ -25,17 +25,20 @@
     @apply flex flex-col gap-[.875rem];
   }
   .footer-link {
-    @apply relative inline-block w-fit max-w-full cursor-pointer;
+    @apply inline-block w-fit max-w-full cursor-pointer transition-colors duration-250 ease-in-out motion-reduce:transition-none;
   }
-  .footer-link-highlight {
-    @apply pointer-events-none absolute inset-0 text-action-hover opacity-0 transition-opacity duration-250 ease-in-out motion-reduce:transition-none;
+  .footer-link:focus-visible {
+    @apply text-action-hover;
   }
-  .footer-link:focus-visible .footer-link-highlight {
-    @apply opacity-100;
+  .footer-navigation .footer-link:focus-visible {
+    @apply text-black underline;
   }
   @media (hover: hover) {
-    .footer-link:hover .footer-link-highlight {
-      @apply opacity-100;
+    .footer-navigation .footer-link:hover {
+      @apply text-black underline;
+    }
+    .footer-link:hover {
+      @apply text-action-hover;
     }
   }
   .footer-services {
