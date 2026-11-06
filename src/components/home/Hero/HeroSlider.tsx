@@ -105,7 +105,9 @@ export function HeroSlider() {
         onIntroEnd={() => setPhase("ready")}
       />
       <div
+        hidden={phase === "loading" || phase === "image"}
         inert={!ready}
+        data-intro={phase}
         className="hero-slider-controls"
         aria-label={content.hero.slider.label}
       >
