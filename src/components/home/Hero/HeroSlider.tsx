@@ -5,11 +5,10 @@ import { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import type { Swiper as SwiperInstance } from "swiper";
-import { content } from "@/lib/content";
 
 import { HeroLamps } from "./HeroLamps";
 
-type IntroPhase = "loading" | "image" | "lamps" | "ready";
+import { HeroSliderControls, type IntroPhase } from "./HeroSliderControls";
 
 export function HeroSlider() {
   const [phase, setPhase] = useState<IntroPhase>("loading");
@@ -104,51 +103,18 @@ export function HeroSlider() {
         intro={phase}
         onIntroEnd={() => setPhase("ready")}
       />
-      <div
-        hidden={phase === "loading" || phase === "image"}
-        inert={!ready}
-        data-intro={phase}
-        className="hero-slider-controls"
-        aria-label={content.hero.slider.label}
-      >
-        <button
-          type="button"
-          className="hero-arrow hero-arrow--previous"
-          aria-label={content.hero.slider.previous}
-          onClick={() => {
-            if (!instance.current?.animating) instance.current?.slidePrev();
-          }}
-        >
-          ←
-        </button>
-        <button
-          type="button"
-          className="hero-arrow hero-arrow--next"
-          aria-label={content.hero.slider.next}
-          onClick={() => {
-            if (!instance.current?.animating) instance.current?.slideNext();
-          }}
-        >
-          →
-        </button>
-        <div
-          className="hero-progress"
-          aria-hidden="true"
-        >
-          {[0, 1].map((index) => (
-            <span
-              className="hero-progress-track"
-              key={index}
-            >
-              <span
-                ref={(element) => {
-                  bars.current[index] = element;
-                }}
-              />
-            </span>
-          ))}
-        </div>
-      </div>
+      <HeroSliderControls
+        phase={phase}
+        onPrevious={() => {
+          if (!instance.current?.animating) instance.current?.slidePrev();
+        }}
+        onNext={() => {
+          if (!instance.current?.animating) instance.current?.slideNext();
+        }}
+        onProgressBarRef={(index, element) => {
+          bars.current[index] = element;
+        }}
+      />
     </>
   );
 }

@@ -2,7 +2,8 @@ import { Vp, VpIcon } from "@/components/ui/Vp";
 import { content } from "@/lib/content";
 export function Benefits() {
   return (
-    <section
+    <div
+      role="group"
       aria-label={content.accessibility.benefits}
       className="benefits"
     >
@@ -14,6 +15,6 @@ export function Benefits() {
           icon={item.icon as VpIcon}
         />
       ))}
-    </section>
+    </div>
   );
 }
