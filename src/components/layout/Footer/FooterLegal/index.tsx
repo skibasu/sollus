@@ -1,6 +1,6 @@
 import { content } from "@/lib/content";
-import { FooterLink } from "./FooterLink";
-import { ProviderMarks } from "./ProviderMarks";
+import { FooterLink } from "../FooterLink";
+import { ProviderMarks } from "../ProviderMarks";
 export function FooterLegal() {
   return (
     <div className="page-container footer-legal">

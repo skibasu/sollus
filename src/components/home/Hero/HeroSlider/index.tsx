@@ -6,9 +6,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import type { Swiper as SwiperInstance } from "swiper";
 
-import { HeroLamps } from "./HeroLamps";
+import { HeroLamps } from "../HeroLamps";
 
-import { HeroSliderControls, type IntroPhase } from "./HeroSliderControls";
+import { HeroSliderControls, type IntroPhase } from "../HeroSliderControls";
 
 export function HeroSlider() {
   const [phase, setPhase] = useState<IntroPhase>("loading");

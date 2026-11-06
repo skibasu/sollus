@@ -1,5 +1,5 @@
 import { Icon } from "@/components/ui/Icon";
-import { Search } from "./Search";
+import { Search } from "../Search";
 import { content } from "@/lib/content";
 export function HeaderActions() {
   return (

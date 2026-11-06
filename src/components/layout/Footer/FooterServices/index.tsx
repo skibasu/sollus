@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import { content } from "@/lib/content";
-import { FooterService, type FooterServiceProps } from "./FooterService";
+import { FooterService, type FooterServiceProps } from "../FooterService";
 
 const awards = [
   "design-award",

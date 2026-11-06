@@ -1,5 +1,5 @@
 import { content } from "@/lib/content";
-import { FooterLink } from "./FooterLink";
+import { FooterLink } from "../FooterLink";
 export function FooterNavigation() {
   return (
     <nav
