@@ -25,7 +25,9 @@ export function HeroSlider() {
       const slider = instance.current;
       if (!slider) return;
       slider.allowTouchMove = ready;
-      slider.params.speed = preference.matches ? 0 : 600;
+      slider.params.speed = preference.matches
+        ? 0
+        : slider.originalParams.speed;
       if (!ready || preference.matches) slider.autoplay.stop();
       else slider.autoplay.start();
     };

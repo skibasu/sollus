@@ -25,3 +25,9 @@ Stage 1 uses static lamp images, a static first slide without slider controls, a
 No dependencies or animation libraries were added. Fonts, image assets, and inline SVG artwork are local. The clean THORO photograph uses the additional Figma node approved by the user.
 
 See AGENTS.md and SPEC.md for the authoritative requirements. Historical browser compatibility is a separate final stage.
+
+## Browser tests
+
+Install the Playwright Chromium browser once with `npx playwright install chromium`.
+Run `npm run test:e2e` to start the local Next.js server on port 3100 and test the
+home page carousel in Chromium.
