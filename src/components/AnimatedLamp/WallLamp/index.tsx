@@ -98,24 +98,26 @@ export default function WallLamp({
               on ? "opacity-100" : "opacity-0",
             )}
           >
-            <ellipse
-              cx={95}
-              cy={346}
-              rx={69}
-              ry={36}
-              transform="rotate(39 95 346)"
-              fill="#7bd8ff"
-              filter={`url(#${glowId})`}
-              opacity=".8"
-            />
-            <ellipse
-              cx={95}
-              cy={346}
-              rx={69}
-              ry={36}
-              transform="rotate(39 95 346)"
-              fill={`url(#${gradientId})`}
-            />
+            <g className="lamp-glow">
+              <ellipse
+                cx={95}
+                cy={346}
+                rx={69}
+                ry={36}
+                transform="rotate(39 95 346)"
+                fill="#7bd8ff"
+                filter={`url(#${glowId})`}
+                opacity=".8"
+              />
+              <ellipse
+                cx={95}
+                cy={346}
+                rx={69}
+                ry={36}
+                transform="rotate(39 95 346)"
+                fill={`url(#${gradientId})`}
+              />
+            </g>
           </g>
         </svg>
       </span>

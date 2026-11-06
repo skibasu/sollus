@@ -375,3 +375,12 @@
     opacity: 1;
   }
 }
+
+.hero-lamps[data-intro="ready"] .lamp-glow {
+  opacity: var(--lamp-visibility, 1);
+}
+
+.hero-lamps[data-intro="ready"] [aria-pressed="true"] .lamp-image {
+  filter: brightness(calc(0.78 + 0.27 * var(--lamp-visibility, 1)));
+  transition: none;
+}
