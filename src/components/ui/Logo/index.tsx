@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Icon } from "../Icon";
 import { content } from "@/lib/content";
-import { classes } from "@/lib/classes";
+import clsx from "clsx";
 export function Logo({
   inverted = false,
   className,
@@ -13,7 +13,7 @@ export function Logo({
     <Link
       href="/"
       aria-label={content.accessibility.home}
-      className={classes("logo", className)}
+      className={clsx("logo", className)}
     >
       <Icon
         name={inverted ? "logoLight" : "logoDark"}
