@@ -4,10 +4,7 @@ import { TileCard } from "@/components/ui/TileCard";
 import { content } from "@/lib/content";
 export function PromotionalGrid() {
   return (
-    <section
-      aria-label={content.accessibility.offers}
-      className="promotional-grid"
-    >
+    <div className="promotional-grid">
       <Grid className="promotion-row">
         {content.cards.slice(0, 2).map((card, index) => (
           <GridColumn
@@ -56,6 +53,6 @@ export function PromotionalGrid() {
           </GridColumn>
         ))}
       </Grid>
-    </section>
+    </div>
   );
 }

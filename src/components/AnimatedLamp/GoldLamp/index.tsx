@@ -1,5 +1,6 @@
 "use client";
 
+import clsx from "clsx";
 import { content } from "@/lib/content";
 import Image from "next/image";
 import { useId, useState } from "react";
@@ -38,7 +39,10 @@ export default function GoldLamp({
       aria-pressed={on}
       onClick={() => setOn((value) => !value)}
       style={{ width: renderedWidth }}
-      className={`relative isolate block max-w-full cursor-pointer border-0 bg-transparent p-0 focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-amber-300 ${className}`}
+      className={clsx(
+        "relative isolate block max-w-full cursor-pointer border-0 bg-transparent p-0 focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-amber-300",
+        className,
+      )}
     >
       <span
         ref={visualRef}
@@ -52,7 +56,10 @@ export default function GoldLamp({
           fill
           sizes={`(max-width: ${renderedWidth}px) 100vw, ${renderedWidth}px`}
           draggable={false}
-          className={`lamp-image z-10 transition-[filter] duration-400 motion-reduce:transition-none ${on ? "brightness-105" : "brightness-[.78]"}`}
+          className={clsx(
+            "lamp-image z-10 transition-[filter] duration-400 motion-reduce:transition-none",
+            on ? "brightness-105" : "brightness-[.78]",
+          )}
         />
         <svg
           viewBox="0 0 372 419"
@@ -86,7 +93,10 @@ export default function GoldLamp({
             </filter>
           </defs>
           <g
-            className={`lamp-light transition-opacity duration-400 motion-reduce:transition-none ${on ? "opacity-100" : "opacity-0"}`}
+            className={clsx(
+              "lamp-light transition-opacity duration-400 motion-reduce:transition-none",
+              on ? "opacity-100" : "opacity-0",
+            )}
           >
             <ellipse
               cx={214}
