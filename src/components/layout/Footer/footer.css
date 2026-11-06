@@ -30,11 +30,11 @@
   .footer-link:focus-visible {
     @apply text-action-hover;
   }
-  .footer-navigation .footer-link:focus-visible {
+  :is(.footer-navigation, .footer-contact) .footer-link:focus-visible {
     @apply text-black underline;
   }
   @media (hover: hover) {
-    .footer-navigation .footer-link:hover {
+    :is(.footer-navigation, .footer-contact) .footer-link:hover {
       @apply text-black underline;
     }
     .footer-link:hover {
