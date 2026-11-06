@@ -48,6 +48,7 @@ export default function GoldLamp({
         <Image
           src="/images/lamps/lampa1.png"
           alt={content.hero.lamps.gold}
+          loading="eager"
           fill
           sizes={`(max-width: ${renderedWidth}px) 100vw, ${renderedWidth}px`}
           draggable={false}

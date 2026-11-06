@@ -16,14 +16,16 @@ export function FooterServices() {
         <h2>{content.footer.payments}</h2>
         <div className="payment-logos">
           {content.footer.paymentAlt.map((alt, index) => (
-            <Image
-              key={index}
-              src={`/images/design/payment-${index}.webp`}
-              width={43}
-              height={24}
-              alt={alt}
-              className="payment-logo"
-            />
+            <div key={index} className="payment-logo">
+              <Image
+                src={`/images/design/payment-${index}.webp`}
+                width={114}
+                height={64}
+                sizes="43px"
+                alt={alt}
+                className="h-auto w-full"
+              />
+            </div>
           ))}
         </div>
       </section>
