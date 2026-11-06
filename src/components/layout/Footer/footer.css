@@ -76,10 +76,7 @@
     @apply flex items-center gap-2;
   }
   .provider-marks a {
-    @apply cursor-pointer;
-  }
-  .commerce-mark {
-    @apply relative block h-9 w-[4.125rem] overflow-hidden;
+    @apply flex shrink-0 cursor-pointer;
   }
   @variant md {
     .footer-top {
