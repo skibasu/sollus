@@ -1,4 +1,8 @@
 @layer base {
+  html {
+    overscroll-behavior-y: none;
+  }
+
   body {
     @apply bg-background font-sans font-medium text-text-default antialiased;
   }
