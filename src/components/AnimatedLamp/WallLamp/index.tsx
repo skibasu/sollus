@@ -48,6 +48,7 @@ export default function WallLamp({
         <Image
           src="/images/lamps/lampa2.png"
           alt={content.hero.lamps.wall}
+          loading="eager"
           fill
           sizes={`(max-width: ${renderedWidth}px) 100vw, ${renderedWidth}px`}
           draggable={false}
