@@ -203,8 +203,13 @@
     position: absolute;
     inset: 0;
   }
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-slider-controls[data-intro="lamps"] {
+      animation: hero-lamp-light 900ms ease-out both;
+    }
+  }
   .hero-arrow {
-    @apply absolute hidden h-12 w-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-pill bg-hero-control text-white;
+    @apply absolute hidden h-12 w-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-pill bg-hero-control text-white hover:bg-ink/55 motion-safe:transition-colors;
     pointer-events: auto;
     border: 0.0625rem solid white;
   }
